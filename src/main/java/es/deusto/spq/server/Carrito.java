@@ -14,7 +14,7 @@ public class Carrito {
 	private double precio;
 	
 	/**
-	 * Constructor con atributos de la clase Carrito
+	 * Constructoor con atributos de la clase Carrito
 	 * @param dni
 	 * @param cod
 	 * @param nom
