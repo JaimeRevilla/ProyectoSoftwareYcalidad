@@ -35,8 +35,8 @@ public class ExampleClient {
 		Invocation.Builder invocationBuilder = registerUserWebTarget.request(MediaType.APPLICATION_JSON);
 		
 		UserData userData = new UserData();
-		userData.setLogin(login);
-		userData.setPassword(password);
+		userData.setNombre(login);
+		userData.setContrasenia(password);
 		Response response = invocationBuilder.post(Entity.entity(userData, MediaType.APPLICATION_JSON));
 		if (response.getStatus() != Status.OK.getStatusCode()) {
 			logger.error("Error connecting with the server. Code: {}", response.getStatus());
@@ -51,8 +51,8 @@ public class ExampleClient {
 
 		DirectMessage directMessage = new DirectMessage();
 		UserData userData = new UserData();
-		userData.setLogin(login);
-		userData.setPassword(password);
+		userData.setNombre(login);
+		userData.setContrasenia(password);
 
 		directMessage.setUserData(userData);
 

@@ -32,7 +32,8 @@ public class User {
 	public void removeMessage(Message message) {
 		messages.remove(message);
 	}
-
+	
+	//Habrá que modificar
 	public String getLogin() {
 		return this.login;
 	}
@@ -52,6 +53,7 @@ public class User {
 		for (Message message: this.messages) {
 			messagesStr.append(message.toString() + " - ");
 		}
+		//Habrá que modificar
         return "User: login --> " + this.login + ", password -->  " + this.password + ", messages --> [" + messagesStr + "]";
     }
 }

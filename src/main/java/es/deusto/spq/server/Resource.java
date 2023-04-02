@@ -7,10 +7,10 @@ import javax.jdo.JDOHelper;
 import javax.jdo.Transaction;
 
 import es.deusto.spq.server.jdo.User;
-import es.deusto.spq.server.jdo.Message;
 import es.deusto.spq.pojo.DirectMessage;
 import es.deusto.spq.pojo.MessageData;
 import es.deusto.spq.pojo.UserData;
+import es.deusto.spq.server.jdo.Message;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -47,7 +47,7 @@ public class Resource {
 			tx.begin();
 			logger.info("Creating query ...");
 			
-			try (Query<?> q = pm.newQuery("SELECT FROM " + User.class.getName() + " WHERE login == \"" + directMessage.getUserData().getLogin() + "\" &&  password == \"" + directMessage.getUserData().getPassword() + "\"")) {
+			try (Query<?> q = pm.newQuery("SELECT FROM " + User.class.getName() + " WHERE login == \"" + directMessage.getUserData().getNombre() + "\" &&  password == \"" + directMessage.getUserData().getContrasenia() + "\"")) {
 				q.setUnique(true);
 				user = (User)q.execute();
 				
@@ -78,32 +78,31 @@ public class Resource {
 		}
 	}
 	
+//	Añadir atributos a la clase UserData
 	@POST
-	@Path("/register")
-	public Response registerUser(UserData userData) {
-		try
-        {	
+    @Path("/register")
+    public Response registerUser(UserData userData) {
+        try
+        {
             tx.begin();
-            logger.info("Checking whether the user already exits or not: '{}'", userData.getLogin());
-			User user = null;
-			try {
-				user = pm.getObjectById(User.class, userData.getLogin());
-			} catch (javax.jdo.JDOObjectNotFoundException jonfe) {
-				logger.info("Exception launched: {}", jonfe.getMessage());
-			}
-			logger.info("User: {}", user);
-			if (user != null) {
-				logger.info("Setting password user: {}", user);
-				user.setPassword(userData.getPassword());
-				logger.info("Password set user: {}", user);
-			} else {
-				logger.info("Creating user: {}", user);
-				user = new User(userData.getLogin(), userData.getPassword());
-				pm.makePersistent(user);					 
-				logger.info("User created: {}", user);
-			}
-			tx.commit();
-			return Response.ok().build();
+            logger.info("Checking whether the user already exits or not: '{}'", userData.getNombre());
+            User user = null;
+            try {
+                user = pm.getObjectById(User.class, userData.getNombre());
+            } catch (javax.jdo.JDOObjectNotFoundException jonfe) {
+                logger.info("Exception launched: {}", jonfe.getMessage());
+            }
+            logger.info("User: {}", user);
+            if (user != null) {
+                return Response.serverError().build();
+            } else {
+                logger.info("Creating user: {}", user);
+                user = new User(userData.getName(), userData.getMail(), userData.getPassword());
+                pm.makePersistent(user);
+                logger.info("User created: {}", user);
+            }
+            tx.commit();
+            return Response.ok().build();
         }
         finally
         {
@@ -111,9 +110,80 @@ public class Resource {
             {
                 tx.rollback();
             }
-      
-		}
-	}
+
+        }
+    }
+//	Añadir atributos a la clase UserData
+	@POST
+    @Path("/login")
+    public Response loginUser(UserData userData) {
+        try
+        {
+            tx.begin();
+            logger.info("Checking whether the user already exits or not: '{}'", userData.getNombre());
+            User user = null;
+            try {
+                user = pm.getObjectById(User.class, userData.getNombre());
+            } catch (javax.jdo.JDOObjectNotFoundException jonfe) {
+                logger.info("Exception launched: {}", jonfe.getMessage());
+            }
+            logger.info("User: {}", user);
+            if (user != null) {
+                if(!user.getPassword().equals(userData.getContrasenia())) {
+                    return Response.serverError().build();
+                }
+            } else {
+                return Response.serverError().build();
+            }
+            tx.commit();
+            return Response.ok().build();
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+
+        }
+    }
+//	CODIGO QUE ESTABA YA 
+//	@POST
+//	@Path("/register")
+//	public Response registerUser(UserData userData) {
+//		try
+//        {	
+//            tx.begin();
+//            logger.info("Checking whether the user already exits or not: '{}'", userData.getLogin());
+//			User user = null;
+//			try {
+//				user = pm.getObjectById(User.class, userData.getLogin());
+//			} catch (javax.jdo.JDOObjectNotFoundException jonfe) {
+//				logger.info("Exception launched: {}", jonfe.getMessage());
+//			}
+//			logger.info("User: {}", user);
+//			if (user != null) {
+//				logger.info("Setting password user: {}", user);
+//				user.setPassword(userData.getPassword());
+//				logger.info("Password set user: {}", user);
+//			} else {
+//				logger.info("Creating user: {}", user);
+//				user = new User(userData.getLogin(), userData.getPassword());
+//				pm.makePersistent(user);					 
+//				logger.info("User created: {}", user);
+//			}
+//			tx.commit();
+//			return Response.ok().build();
+//        }
+//        finally
+//        {
+//            if (tx.isActive())
+//            {
+//                tx.rollback();
+//            }
+//      
+//		}
+//	}
 
 	@GET
 	@Path("/hello")
