@@ -54,7 +54,7 @@ public class Resource {
 				logger.info("User retrieved: {}", user);
 				if (user != null)  {
 					Message message = new Message(directMessage.getMessageData().getMessage());
-					user.getMessages().add(message);
+					//user.getMessages().add(message);
 					pm.makePersistent(user);					 
 				}
 			} catch (Exception e) {
@@ -97,7 +97,7 @@ public class Resource {
                 return Response.serverError().build();
             } else {
                 logger.info("Creating user: {}", user);
-                user = new User(userData.getName(), userData.getMail(), userData.getPassword());
+                user = new User(userData.getNombre(), userData.getEmail(), userData.getContrasenia());
                 pm.makePersistent(user);
                 logger.info("User created: {}", user);
             }

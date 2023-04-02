@@ -13,25 +13,27 @@ public class User {
 	@PrimaryKey
 	String login=null;
 	String password=null;
+	String email=null;
 	
-	@Persistent(mappedBy="user", dependentElement="true")
-	@Join
-	Set<Message> messages = new HashSet<>();
+//	@Persistent(mappedBy="user", dependentElement="true")
+//	@Join
+//	Set<Message> messages = new HashSet<>();
 	
 	
 	
-	public User(String login, String password) {
+	public User(String login, String password, String email) {
 		this.login = login;
 		this.password = password;
+		this.email= email;
 	}
 	
-	public void addMessage(Message message) {
-		messages.add(message);
-	}
-
-	public void removeMessage(Message message) {
-		messages.remove(message);
-	}
+//	public void addMessage(Message message) {
+//		messages.add(message);
+//	}
+//
+//	public void removeMessage(Message message) {
+//		messages.remove(message);
+//	}
 	
 	//Habrá que modificar
 	public String getLogin() {
@@ -46,14 +48,14 @@ public class User {
 		this.password = password;
 	}
 	
-	 public Set<Message> getMessages() {return this.messages;}
-	 
-	 public String toString() {
-		StringBuilder messagesStr = new StringBuilder();
-		for (Message message: this.messages) {
-			messagesStr.append(message.toString() + " - ");
-		}
+//	 public Set<Message> getMessages() {return this.messages;}
+//	 
+//	 public String toString() {
+//		StringBuilder messagesStr = new StringBuilder();
+//		for (Message message: this.messages) {
+//			messagesStr.append(message.toString() + " - ");
+//		}
 		//Habrá que modificar
-        return "User: login --> " + this.login + ", password -->  " + this.password + ", messages --> [" + messagesStr + "]";
-    }
+//        return "User: login --> " + this.login + ", password -->  " + this.password + ", messages --> [" + messagesStr + "]";
+//    }
 }
