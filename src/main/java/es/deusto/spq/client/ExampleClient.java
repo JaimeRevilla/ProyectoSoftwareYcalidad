@@ -12,6 +12,8 @@ import javax.ws.rs.core.Response.Status;
 import es.deusto.spq.pojo.DirectMessage;
 import es.deusto.spq.pojo.MessageData;
 import es.deusto.spq.pojo.UserData;
+import es.deusto.spq.windows.VentanaInicial;
+import es.deusto.spq.windows.VentanaInicioSesion;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -44,6 +46,23 @@ public class ExampleClient {
 			logger.info("User correctly registered");
 		}
 	}
+	
+	public void logUser(String name, String password) {
+        WebTarget registerUserWebTarget = webTarget.path("login");
+        Invocation.Builder invocationBuilder = registerUserWebTarget.request(MediaType.APPLICATION_JSON);
+
+        UserData userData = new UserData();
+        userData.setNombre(name);
+        userData.setContrasenia(password);
+        Response response = invocationBuilder.post(Entity.entity(userData, MediaType.APPLICATION_JSON));
+        if (response.getStatus() != Status.OK.getStatusCode()) {
+            logger.error("Error connecting with the server. Code: {}", response.getStatus());
+        } else {
+            logger.info("User correctly logged");
+//            GestorAgenda mgt = new GestorAgenda();
+//            mgt.lanza();
+        }
+    }
 
 	public void sayMessage(String login, String password, String message) {
 		WebTarget sayHelloWebTarget = webTarget.path("sayMessage");
@@ -79,7 +98,8 @@ public class ExampleClient {
 		String port = args[1];
 
 		ExampleClient exampleClient = new ExampleClient(hostname, port);
-		exampleClient.registerUser(USER, PASSWORD);
-		exampleClient.sayMessage(USER, PASSWORD, "This is a test!...");
+		new VentanaInicial(exampleClient);
+//		exampleClient.registerUser(USER, PASSWORD);
+//		exampleClient.sayMessage(USER, PASSWORD, "This is a test!...");
 	}
 }

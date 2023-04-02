@@ -19,6 +19,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
+import es.deusto.spq.client.ExampleClient;
 import es.deusto.spq.server.BaseDatos;
 import es.deusto.spq.server.Producto;
 
@@ -42,19 +43,19 @@ public class VentanaRegis extends JFrame {
 	private JLabel imagen;
 	private JPasswordField passwordField;
 	
-	public VentanaRegis() {
+	public VentanaRegis(ExampleClient ex) {
 		vent = this;
 		
 		/**
 		 * PROBLEMA. Duda = ¿Cómo estableces la conexión con la BBDD?
 		 */
 		//Conexion  con la base de datos y  creamos la tabla 
-		Connection con = BaseDatos.initBD("data/DeustoIkea.db");
+//		Connection con = BaseDatos.initBD("data/DeustoIkea.db");
 		
 		/**
 		 * PROBLEMA. Duda= ¿Cómo nos conectamos con la BBDD? 
 		 */
-		BaseDatos.crearTablasUsuario(con);
+//		BaseDatos.crearTablasUsuario(con);
 
 		
 		setBounds(250, 225, 1000, 508);
@@ -103,15 +104,16 @@ public class VentanaRegis extends JFrame {
 					/**
 					 * PROBLEMA. Duda = ¿Cómo nos conectamos con la BBDD?
 					 */
-					boolean encontrada = BaseDatos.buscarUsuario(con, dni);
+					boolean encontrada = false;
 					if(!encontrada) {
 						/**
 						 * PROBLEMA. Duda = ¿Cómo nos conectamos con la BBDD?
 						 */
-						BaseDatos.insertarUsuario(con, nombre, dni, mail, domicilio, contrasenia, 0);
+//						BaseDatos.insertarUsuario(con, nombre, dni, mail, domicilio, contrasenia, 0);
+						ex.registerUser(nombre, contrasenia);
 						JOptionPane.showMessageDialog(null,"Registro realizado correctamente!", "REGISTRO REALIZADO", JOptionPane.DEFAULT_OPTION);
 						System.out.println("El usuario ha sido registrado correctamente!");
-						VentanaInicioSesion.mapa.put(dni, new ArrayList<Producto>());
+						//VentanaInicioSesion.mapa.put(dni, new ArrayList<Producto>());
 						dispose();
 					}else {
 						JOptionPane.showMessageDialog(null,"Registro realizado es incorrecta! \n Existe ya un usuario", "ERROR", JOptionPane.INFORMATION_MESSAGE);
@@ -226,17 +228,17 @@ public class VentanaRegis extends JFrame {
 		setVisible(true);
 	}
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaRegis frame = new VentanaRegis();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					VentanaRegis frame = new VentanaRegis();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 }

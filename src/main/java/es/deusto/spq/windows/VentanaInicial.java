@@ -21,6 +21,9 @@ import java.awt.Component;
 
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+
+import es.deusto.spq.client.ExampleClient;
+
 import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,7 +36,7 @@ public class VentanaInicial extends JFrame {
 	public static String dni;
 	public static String dniA;
 	private static Logger logger = Logger.getLogger("VentanaInicial");
-	public VentanaInicial() {
+	public VentanaInicial(ExampleClient exampleClient) {
 		
 		setBounds(250, 225, 1000, 508);
 		setResizable(false);
@@ -78,7 +81,7 @@ public class VentanaInicial extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VentanaRegis v1 = new VentanaRegis();
+				VentanaRegis v1 = new VentanaRegis(exampleClient);
 				logger.log(Level.INFO, "Estamos registrandonos");
 			}
 		});
@@ -95,7 +98,7 @@ public class VentanaInicial extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VentanaInicioSesion v1 = new VentanaInicioSesion();
+				VentanaInicioSesion v1 = new VentanaInicioSesion(exampleClient);
 				logger.log(Level.INFO, "Estamos logeandonos");
 			}
 		});
@@ -139,17 +142,17 @@ public class VentanaInicial extends JFrame {
 		setVisible(true);
 	}
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaInicial frame = new VentanaInicial();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					VentanaInicial frame = new VentanaInicial(ExampleClient);
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 }

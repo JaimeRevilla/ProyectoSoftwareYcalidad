@@ -20,6 +20,7 @@ import javax.swing.JTextField;
 import java.awt.Component;
 import javax.swing.border.LineBorder;
 
+import es.deusto.spq.client.ExampleClient;
 import es.deusto.spq.server.BaseDatos;
 import es.deusto.spq.server.Producto;
 import es.deusto.spq.server.Usuario;
@@ -44,19 +45,19 @@ public class VentanaInicioSesion extends JFrame {
 	public static  ArrayList<Producto> carrito ;
 	public static HashMap<String, ArrayList<Producto>> mapa;
 	private static boolean admin = false;
-	public VentanaInicioSesion() {
+	public VentanaInicioSesion(ExampleClient ex) {
 		carrito = new ArrayList<>();
 		/**
 		 * PROBLEMA. Duda = ¿Cómo establecemos la conexión con la BBDD?
 		 */
-		Connection con = BaseDatos.initBD("data/DeustoIkea.db");
+//		Connection con = BaseDatos.initBD("data/DeustoIkea.db");
 		
 		mapa = new HashMap<>();
 		
 		/**
 		 * PROBLEMA. Duda = ¿Cómo creamos la conexión con la BBDD?
 		 */
-		BaseDatos.crearTablasUsuario(con);
+//		BaseDatos.crearTablasUsuario(con);
 		setBounds(250, 225, 1000, 508);
 		
 		getContentPane().setFont(new Font("Sitka Small", Font.PLAIN, 10));
@@ -98,7 +99,8 @@ public class VentanaInicioSesion extends JFrame {
 					 /**
 					  * PROBLEMA. Duda = ¿Cómo establecemos la conexión con la BBDD?
 					  */
-					 BaseDatos.obtenerAdmin(con, dniA);
+//					 BaseDatos.obtenerAdmin(con, dniA);
+					 ex.logUser(dni, contrasenia);
 					 JOptionPane.showMessageDialog(null, "Bienvenido ADMIN", "SESIÓN INICIADA", JOptionPane.DEFAULT_OPTION);
 					 VentanaInicial.dniA = dniA;
 					 admin = true;
@@ -108,7 +110,7 @@ public class VentanaInicioSesion extends JFrame {
 					/**
 					 * PROBLEMA. Duda = ¿Cómo establecemos la conexión con la BBDD?
 					 */
-					u = BaseDatos.obtenerUsuario(con, dni);
+//					u = BaseDatos.obtenerUsuario(con, dni);
 					if(u != null) {
 						if(u.getContrasenia().equals(contrasenia)) {
 							JOptionPane.showMessageDialog(null, "Bienvenido", "SESIÓN INICIADA", JOptionPane.DEFAULT_OPTION);
@@ -147,7 +149,7 @@ public class VentanaInicioSesion extends JFrame {
 				/**
 				 * PROBLEMA. Duda = ¿Cómo establecemos la conexión con la BBDD?
 				 */
-				BaseDatos.closeBD(connection);
+//				BaseDatos.closeBD(connection);
 			}
 			
 		});
@@ -212,12 +214,12 @@ public class VentanaInicioSesion extends JFrame {
 		/**
 		 * PROBLEMA. Duda = ¿Cómo establecemos la conexión con la BBDD?
 		 */
-		connection= BaseDatos.initBD("data/DeustoIkea");
-		BaseDatos.crearTablasUsuario(connection);
-		BaseDatos.crearTablasProducto(connection);
-		BaseDatos.crearTablasCarrito(connection);
-		BaseDatos.insertarUsuario(connection, "Admin","111A","admin@gmail.com","casa", "Aa00Za", 1 );
-		
+//		connection= BaseDatos.initBD("data/DeustoIkea");
+//		BaseDatos.crearTablasUsuario(connection);
+//		BaseDatos.crearTablasProducto(connection);
+//		BaseDatos.crearTablasCarrito(connection);
+//		BaseDatos.insertarUsuario(connection, "Admin","111A","admin@gmail.com","casa", "Aa00Za", 1 );
+//		
 
 	}
 	public static boolean getAdmin() {
@@ -225,17 +227,17 @@ public class VentanaInicioSesion extends JFrame {
 	}
 	
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaInicioSesion frame = new VentanaInicioSesion();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					VentanaInicioSesion frame = new VentanaInicioSesion();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 }
