@@ -110,7 +110,7 @@ public class VentanaRegis extends JFrame {
 						 * PROBLEMA. Duda = ¿Cómo nos conectamos con la BBDD?
 						 */
 //						BaseDatos.insertarUsuario(con, nombre, dni, mail, domicilio, contrasenia, 0);
-						ex.registerUser(nombre, contrasenia);
+						ex.registerUser(nombre, contrasenia, mail);
 						JOptionPane.showMessageDialog(null,"Registro realizado correctamente!", "REGISTRO REALIZADO", JOptionPane.DEFAULT_OPTION);
 						System.out.println("El usuario ha sido registrado correctamente!");
 						//VentanaInicioSesion.mapa.put(dni, new ArrayList<Producto>());

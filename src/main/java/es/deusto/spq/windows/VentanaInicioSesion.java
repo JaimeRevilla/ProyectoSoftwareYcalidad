@@ -101,7 +101,7 @@ public class VentanaInicioSesion extends JFrame {
 					  * PROBLEMA. Duda = ¿Cómo establecemos la conexión con la BBDD?
 					  */
 //					 BaseDatos.obtenerAdmin(con, dniA);
-					 ex.logUser(dni, contrasenia);
+//					 boolean b = ex.logUser(dni, contrasenia);
 					 JOptionPane.showMessageDialog(null, "Bienvenido ADMIN", "SESIÓN INICIADA", JOptionPane.DEFAULT_OPTION);
 					 VentanaInicial.dniA = dniA;
 					 admin = true;
@@ -112,8 +112,9 @@ public class VentanaInicioSesion extends JFrame {
 					 * PROBLEMA. Duda = ¿Cómo establecemos la conexión con la BBDD?
 					 */
 //					u = BaseDatos.obtenerUsuario(con, dni);
+					ex.logUser(dni, contrasenia);
 					if(u != null) {
-						if(u.getPassword().equals(contrasenia)) {
+//						if(b) {
 							JOptionPane.showMessageDialog(null, "Bienvenido", "SESIÓN INICIADA", JOptionPane.DEFAULT_OPTION);
 							//VentanaInicioSesion.dni = dni;
 							VentanaInicial.dni = dni;
@@ -122,9 +123,9 @@ public class VentanaInicioSesion extends JFrame {
 							 */
 							//VentanaPrincipal.dni = dni;
 							dispose();
-						}else {
-							JOptionPane.showMessageDialog(null, "La contraseña es erronea!", "ERROR", JOptionPane.ERROR_MESSAGE);
-						}
+//						}else {
+//							JOptionPane.showMessageDialog(null, "La contraseña es erronea!", "ERROR", JOptionPane.ERROR_MESSAGE);
+//						}
 					}else {
 						JOptionPane.showMessageDialog(null, "No existe un usuario para ese DNI! \n Vuelve a introducirlo ó deberas de registrar! ", "ERROR", JOptionPane.INFORMATION_MESSAGE);
 					}
