@@ -24,6 +24,7 @@ import es.deusto.spq.client.ExampleClient;
 import es.deusto.spq.server.BaseDatos;
 import es.deusto.spq.server.Producto;
 import es.deusto.spq.server.Usuario;
+import es.deusto.spq.server.jdo.User;
 
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -106,13 +107,13 @@ public class VentanaInicioSesion extends JFrame {
 					 admin = true;
 					 dispose();
 				}else if(Pattern.matches(erDni, dni) && Pattern.matches(erContr, contrasenia)) {
-					Usuario u = new Usuario();
+					User u = new User();
 					/**
 					 * PROBLEMA. Duda = ¿Cómo establecemos la conexión con la BBDD?
 					 */
 //					u = BaseDatos.obtenerUsuario(con, dni);
 					if(u != null) {
-						if(u.getContrasenia().equals(contrasenia)) {
+						if(u.getPassword().equals(contrasenia)) {
 							JOptionPane.showMessageDialog(null, "Bienvenido", "SESIÓN INICIADA", JOptionPane.DEFAULT_OPTION);
 							//VentanaInicioSesion.dni = dni;
 							VentanaInicial.dni = dni;

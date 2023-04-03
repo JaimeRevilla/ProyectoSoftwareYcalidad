@@ -18,8 +18,10 @@ public class User {
 //	@Persistent(mappedBy="user", dependentElement="true")
 //	@Join
 //	Set<Message> messages = new HashSet<>();
-	
-	
+
+	public User() {
+		
+	}
 	
 	public User(String login, String password, String email) {
 		this.login = login;
@@ -34,7 +36,7 @@ public class User {
 //	public void removeMessage(Message message) {
 //		messages.remove(message);
 //	}
-	
+
 	//Habrá que modificar
 	public String getLogin() {
 		return this.login;
