@@ -119,7 +119,7 @@ public class VentanaInicial extends JFrame {
 					/**
 					 * DESCOMENTAR VENTANA PRINCIOPAL
 					 */
-					//VentanaPrincipal v1 = new VentanaPrincipal();
+					VentanaPrincipal v1 = new VentanaPrincipal(exampleClient);
 					System.out.println("Usuario");
 					logger.log(Level.INFO, "accediendo al menu");
 					
