@@ -104,5 +104,6 @@ public class ExampleClient {
 		new VentanaInicial(exampleClient);
 //		exampleClient.registerUser(USER, PASSWORD);
 //		exampleClient.sayMessage(USER, PASSWORD, "This is a test!...");
+//	 
 	}
 }
