@@ -32,19 +32,22 @@ public class ExampleClient {
 		client = ClientBuilder.newClient();
 		webTarget = client.target(String.format("http://%s:%s/rest/resource", hostname, port));
 	}
-	public void registerUser(String login, String password, String email) {
+	public boolean registerUser(String login, String password, String email) {
 		WebTarget registerUserWebTarget = webTarget.path("register");
-		Invocation.Builder invocationBuilder = registerUserWebTarget.request(MediaType.APPLICATION_JSON);
+		//Invocation.Builder invocationBuilder = registerUserWebTarget.request(MediaType.APPLICATION_JSON);
 		
 		UserData userData = new UserData();
 		userData.setNombre(login);
 		userData.setContrasenia(password);
 		userData.setEmail(email);
-		Response response = invocationBuilder.post(Entity.entity(userData, MediaType.APPLICATION_JSON));
+		//Response response = invocationBuilder.post(Entity.entity(userData, MediaType.APPLICATION_JSON));
+		Response response = registerUserWebTarget.request(MediaType.APPLICATION_JSON).post(Entity.entity(userData, MediaType.APPLICATION_JSON));
 		if (response.getStatus() != Status.OK.getStatusCode()) {
 			logger.error("Error connecting with the server. Code: {}", response.getStatus());
+			return false;
 		} else {
 			logger.info("User correctly registered");
+			return true;
 		}
 	}
 	
