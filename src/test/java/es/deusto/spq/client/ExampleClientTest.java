@@ -25,7 +25,6 @@ import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import es.deusto.spq.pojo.DirectMessage;
 import es.deusto.spq.pojo.UserData;
 
 
@@ -40,8 +39,8 @@ public class ExampleClientTest {
     @Captor
     private ArgumentCaptor<Entity<UserData>> userDataEntityCaptor;
 
-    @Captor
-    private ArgumentCaptor<Entity<DirectMessage>> directMessageEntityCaptor;
+//    @Captor
+//    private ArgumentCaptor<Entity<DirectMessage>> directMessageEntityCaptor;
 
     private ExampleClient exampleClient;
 
@@ -68,7 +67,8 @@ public class ExampleClientTest {
 
         verify(webTarget.request(MediaType.APPLICATION_JSON)).post(userDataEntityCaptor.capture());
         assertEquals("test-login", userDataEntityCaptor.getValue().getEntity().getLogin());
-        assertEquals("passwd", userDataEntityCaptor.getValue().getEntity().getPassword());
+        assertEquals("passwd", userDataEntityCaptor.getValue().getEntity().getContrasenia());
+        assertEquals("email", userDataEntityCaptor.getValue().getEntity().getEmail());
     }
 
     @Test
@@ -81,7 +81,8 @@ public class ExampleClientTest {
 
         verify(webTarget.request(MediaType.APPLICATION_JSON)).post(userDataEntityCaptor.capture());
         assertEquals("test-login", userDataEntityCaptor.getValue().getEntity().getLogin());
-        assertEquals("passwd", userDataEntityCaptor.getValue().getEntity().getPassword());
+        assertEquals("passwd", userDataEntityCaptor.getValue().getEntity().getContrasenia());
+        assertEquals("email", userDataEntityCaptor.getValue().getEntity().getEmail());
     }
 
 //    @Test

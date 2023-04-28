@@ -10,7 +10,6 @@ public class UserData {
 	private String email;
 	private String contrasenia;
     private String login;
-    private String password;
 	
 	
 	/**
@@ -111,15 +110,8 @@ public class UserData {
         this.login = login;
     }
 
-    public String getPassword() {
-        return this.password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
     
     public String toString() {
-    	return String.format("[login=%s, password=%s]", login, password);
+    	return String.format("[login=%s, password=%s]", login, contrasenia);
     }
 }

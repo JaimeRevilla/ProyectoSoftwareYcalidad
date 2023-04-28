@@ -13,7 +13,6 @@ import es.deusto.spq.pojo.DirectMessage;
 import es.deusto.spq.pojo.MessageData;
 import es.deusto.spq.pojo.UserData;
 import es.deusto.spq.windows.VentanaInicial;
-import es.deusto.spq.windows.VentanaInicioSesion;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -24,6 +23,7 @@ public class ExampleClient {
 
 	private static final String USER = "dipina";
 	private static final String PASSWORD = "dipina";
+	private static final String MAIL = "dipina";
 	
 	private Client client;
 	private WebTarget webTarget;
@@ -105,7 +105,7 @@ public class ExampleClient {
 
 		ExampleClient exampleClient = new ExampleClient(hostname, port);
 		new VentanaInicial(exampleClient);
-//		exampleClient.registerUser(USER, PASSWORD);
+		exampleClient.registerUser(USER, PASSWORD, MAIL);
 //		exampleClient.sayMessage(USER, PASSWORD, "This is a test!...");
 //	 
 	}
