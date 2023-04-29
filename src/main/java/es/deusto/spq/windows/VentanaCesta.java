@@ -176,7 +176,7 @@ public class VentanaCesta extends JFrame {
 		btnFactura.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				VentanaFactura v1 = new VentanaFactura(cargarFichero());
+				VentanaFactura v1 = new VentanaFactura(cargarFichero());
 				
 			}
 		});
