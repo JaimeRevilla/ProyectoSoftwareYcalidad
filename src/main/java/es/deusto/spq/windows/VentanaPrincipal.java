@@ -317,7 +317,7 @@ public class VentanaPrincipal extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//VentanaTv v4 = new VentanaTv();
+				VentanaTv v4 = new VentanaTv();
 			}
 		});
 
