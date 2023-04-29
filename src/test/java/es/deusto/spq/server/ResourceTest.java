@@ -172,13 +172,13 @@ public class ResourceTest {
     public void testRegisterUser() {
         // prepare mock Persistence Manager to return User
         UserData userData = new UserData();
-        userData.setNombre("test-login");
+        userData.setLogin("test-login");
         userData.setContrasenia("passwd");
         userData.setEmail("email");
 
         // simulate that 
         User user = spy(User.class);
-        when(persistenceManager.getObjectById(User.class, userData.getNombre())).thenReturn(user);
+        when(persistenceManager.getObjectById(User.class, userData.getLogin())).thenReturn(user);
 
         // call tested method
         Response response = resource.registerUser(userData);
