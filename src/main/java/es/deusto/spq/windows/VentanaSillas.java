@@ -127,7 +127,7 @@ public class VentanaSillas extends JFrame{
 			}
 		});
 
-		modelSilla = new JTableButtonModel();
+//		modelSilla = new JTableButtonModel();
 		
 		
 		tablaSilla = new JTable(modelSilla);
@@ -283,17 +283,17 @@ public class VentanaSillas extends JFrame{
 
 	
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaSillas frame = new VentanaSillas();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					VentanaSillas frame = new VentanaSillas();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 }
 
