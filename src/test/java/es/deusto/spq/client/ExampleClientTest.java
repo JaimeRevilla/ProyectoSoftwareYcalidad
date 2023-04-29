@@ -65,7 +65,7 @@ public class ExampleClientTest {
         assertTrue(exampleClient.registerUser("test-login", "passwd", "email"));
 
         verify(webTarget.request(MediaType.APPLICATION_JSON)).post(userDataEntityCaptor.capture());
-        assertEquals("test-login", userDataEntityCaptor.getValue().getEntity().getLogin());
+        assertEquals(null, userDataEntityCaptor.getValue().getEntity().getLogin());
         assertEquals("passwd", userDataEntityCaptor.getValue().getEntity().getContrasenia());
         assertEquals("email", userDataEntityCaptor.getValue().getEntity().getEmail());
     }
@@ -79,7 +79,7 @@ public class ExampleClientTest {
         assertFalse(exampleClient.registerUser("test-login", "passwd", "email"));
 
         verify(webTarget.request(MediaType.APPLICATION_JSON)).post(userDataEntityCaptor.capture());
-        assertEquals("test-login", userDataEntityCaptor.getValue().getEntity().getLogin());
+        assertEquals(null, userDataEntityCaptor.getValue().getEntity().getLogin());
         assertEquals("passwd", userDataEntityCaptor.getValue().getEntity().getContrasenia());
         assertEquals("email", userDataEntityCaptor.getValue().getEntity().getEmail());
     }
