@@ -41,43 +41,81 @@ public class Resource {
 
 	@POST
 	@Path("/sayMessage")
+//	public Response sayMessage(DirectMessage directMessage) {
+//		User user = null;
+//		try{
+//			tx.begin();
+//			logger.info("Creating query ...");
+//			
+//			try (Query<?> q = pm.newQuery("SELECT FROM " + User.class.getName() + " WHERE login == \"" + directMessage.getUserData().getNombre() + "\" &&  password == \"" + directMessage.getUserData().getContrasenia() + "\"")) {
+//				q.setUnique(true);
+//				user = (User)q.execute();
+//				
+//				logger.info("User retrieved: {}", user);
+//				if (user != null)  {
+//					Message message = new Message(directMessage.getMessageData().getMessage());
+//					//user.getMessages().add(message);
+//					pm.makePersistent(user);					 
+//				}
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//			tx.commit();
+//		} finally {
+//			if (tx.isActive()) {
+//				tx.rollback();
+//			}
+//		}
+//		
+//		if (user != null) {
+//			cont++;
+//			logger.info(" * Client number: {}", cont);
+//			MessageData messageData = new MessageData();
+//			messageData.setMessage(directMessage.getMessageData().getMessage());
+//			return Response.ok(messageData).build();
+//		} else {
+//			return Response.status(Status.BAD_REQUEST).entity("Login details supplied for message delivery are not correct").build();
+//		}
+//	}
 	public Response sayMessage(DirectMessage directMessage) {
 		User user = null;
-		try{
+		try {
 			tx.begin();
 			logger.info("Creating query ...");
-			
-			try (Query<?> q = pm.newQuery("SELECT FROM " + User.class.getName() + " WHERE login == \"" + directMessage.getUserData().getNombre() + "\" &&  password == \"" + directMessage.getUserData().getContrasenia() + "\"")) {
+
+			try (Query<?> q = pm.newQuery(User.class)) {
+				q.setFilter("this.login == :login && this.password == :password");
 				q.setUnique(true);
-				user = (User)q.execute();
-				
+				user = (User) q.execute(directMessage.getUserData().getLogin(), directMessage.getUserData().getContrasenia());
+
 				logger.info("User retrieved: {}", user);
-				if (user != null)  {
+				if (user != null) {
 					Message message = new Message(directMessage.getMessageData().getMessage());
-					//user.getMessages().add(message);
-					pm.makePersistent(user);					 
+//					user.getMessages().add(message);
+					pm.makePersistent(user);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
 			tx.commit();
 		} finally {
 			if (tx.isActive()) {
 				tx.rollback();
 			}
 		}
-		
+
 		if (user != null) {
 			cont++;
-			logger.info(" * Client number: {}", cont);
+			logger.info(" * Client number: {} ", cont);
 			MessageData messageData = new MessageData();
 			messageData.setMessage(directMessage.getMessageData().getMessage());
 			return Response.ok(messageData).build();
 		} else {
-			return Response.status(Status.BAD_REQUEST).entity("Login details supplied for message delivery are not correct").build();
+			return Response.status(Status.BAD_REQUEST)
+				.entity("Login details supplied for message delivery are not correct").build();
 		}
 	}
-	
 //	Añadir atributos a la clase UserData
 	@POST
     @Path("/register")
