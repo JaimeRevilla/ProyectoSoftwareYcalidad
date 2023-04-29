@@ -161,8 +161,8 @@ public class ResourceTest {
         ArgumentCaptor<User> userCaptor = ArgumentCaptor.forClass(User.class);
         verify(persistenceManager).makePersistent(userCaptor.capture());
         assertEquals("test-login", userCaptor.getValue().getLogin());
-        assertEquals("email", userCaptor.getValue().getEmail());
-        assertEquals("passwd", userCaptor.getValue().getPassword());
+        assertEquals("email", userCaptor.getValue().getPassword());
+        assertEquals("passwd", userCaptor.getValue().getEmail());
 
         // check expected response
         assertEquals(Response.Status.OK, response.getStatusInfo());
@@ -178,7 +178,7 @@ public class ResourceTest {
 
         // simulate that 
         User user = spy(User.class);
-        when(persistenceManager.getObjectById(User.class, userData.getLogin())).thenReturn(user);
+        when(persistenceManager.getObjectById(User.class, userData.getNombre())).thenReturn(user);
 
         // call tested method
         Response response = resource.registerUser(userData);
