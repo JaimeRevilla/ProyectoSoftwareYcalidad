@@ -1,25 +1,30 @@
-Jersey + DataNucleus + MySQL
+DEUSTOIKEA
 ============================
 
-This example relies on the DataNucleus Maven plugin. Check the database configuration in the *datanucleus.properties* file and the JDBC driver dependency specified in the *pom.xml* file. In addition, the project contains the server and client example codes.
+To run the following proyect you must run these commands:
 
-Run the following command to build everything and enhance the DB classes:
+SERVER
+============================
 
-      mvn clean compile
+To build everything and enhance the DB classes / To compile classes and run the unit tests:
 
-Make sure that the database was correctly configured. Use the contents of the file *create-message.sql* to create the database and grant privileges. For example,
+      mvn clean compile / mvn test
 
-      mysql –uroot -p < sql/create-messages.sql
+To link the database correctly with the proyect:
 
-Run the following command to create database schema for this sample.
+      mysql –uroot -p < sql/DeustoIkeaBD.sql
+
+To create database schema for this sample.
 
       mvn datanucleus:schema-create
 
-To launch the server run the command
+To launch the server:
 
-    mvn jetty:run
+      mvn jetty:run
 
-Now, the client sample code can be executed in a new command window with
+CLIENT
+============================
 
-    mvn exec:java -Pclient
+You have to open another command prompt and execute the following command for running the client:
 
+      mvn exec:java -Pclient
