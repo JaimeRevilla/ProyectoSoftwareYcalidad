@@ -15,6 +15,7 @@ public class UserDataTest {
         userData = new UserData();
         userData.setLogin("test-login");
         userData.setContrasenia("passwd");
+        userData.setDni("dni");
     }
 
     @Test
@@ -30,5 +31,14 @@ public class UserDataTest {
     @Test
     public void testToString() {
         assertEquals("[login=test-login, password=passwd]", userData.toString());
+    }
+    @Test
+    public void testGetDni() {
+    	assertEquals("dni", userData.getDni());
+    }
+    @Test
+    public void testSetDni() {
+    	userData.setDni("newDni");
+    	assertEquals("newDni", userData.getDni());
     }
 }
