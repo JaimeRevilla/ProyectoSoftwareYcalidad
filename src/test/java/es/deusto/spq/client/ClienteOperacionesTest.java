@@ -28,7 +28,7 @@ import org.mockito.MockitoAnnotations;
 import es.deusto.spq.pojo.UserData;
 
 
-public class ExampleClientTest { 
+public class ClienteOperacionesTest { 
 
     @Mock
     private Client client;
@@ -42,7 +42,7 @@ public class ExampleClientTest {
 //    @Captor
 //    private ArgumentCaptor<Entity<DirectMessage>> directMessageEntityCaptor;
 
-    private ExampleClient exampleClient;
+    private ClienteOperaciones exampleClient;
 
     @Before
     public void setUp() {
@@ -52,7 +52,7 @@ public class ExampleClientTest {
             clientBuilder.when(ClientBuilder::newClient).thenReturn(client);
             when(client.target("http://localhost:8080/rest/resource")).thenReturn(webTarget);
 
-            exampleClient = new ExampleClient("localhost", "8080");
+            exampleClient = new ClienteOperaciones("localhost", "8080");
         }
     }
 

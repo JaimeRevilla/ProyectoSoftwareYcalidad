@@ -17,7 +17,7 @@ import es.deusto.spq.windows.VentanaInicial;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class ExampleClient {
+public class ClienteOperaciones {
 
 	protected static final Logger logger = LogManager.getLogger();
 
@@ -28,7 +28,7 @@ public class ExampleClient {
 	private Client client;
 	private WebTarget webTarget;
 
-	public ExampleClient(String hostname, String port) {
+	public ClienteOperaciones(String hostname, String port) {
 		client = ClientBuilder.newClient();
 		webTarget = client.target(String.format("http://%s:%s/rest/resource", hostname, port));
 	}

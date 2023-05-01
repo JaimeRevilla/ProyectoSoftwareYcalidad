@@ -22,7 +22,7 @@ import java.awt.Component;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
-import es.deusto.spq.client.ExampleClient;
+import es.deusto.spq.client.ClienteOperaciones;
 
 import java.awt.event.ActionListener;
 import java.util.logging.Level;
@@ -36,7 +36,7 @@ public class VentanaInicial extends JFrame {
 	public static String dni;
 	public static String dniA;
 	private static Logger logger = Logger.getLogger("VentanaInicial");
-	public VentanaInicial(ExampleClient exampleClient) {
+	public VentanaInicial(ClienteOperaciones exampleClient) {
 		
 		setBounds(250, 225, 1000, 508);
 		setResizable(false);

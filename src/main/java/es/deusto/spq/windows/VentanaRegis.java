@@ -19,7 +19,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
-import es.deusto.spq.client.ExampleClient;
+import es.deusto.spq.client.ClienteOperaciones;
 import es.deusto.spq.server.Producto;
 
 import java.awt.event.ActionListener;
@@ -42,7 +42,7 @@ public class VentanaRegis extends JFrame {
 	private JLabel imagen;
 	private JPasswordField passwordField;
 	
-	public VentanaRegis(ExampleClient ex) {
+	public VentanaRegis(ClienteOperaciones ex) {
 		vent = this;
 		
 		/**

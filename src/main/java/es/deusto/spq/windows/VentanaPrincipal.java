@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 import java.awt.Component;
 import javax.swing.border.LineBorder;
 
-import es.deusto.spq.client.ExampleClient;
+import es.deusto.spq.client.ClienteOperaciones;
 import es.deusto.spq.server.Producto;
 
 import java.awt.event.ActionListener;
@@ -60,7 +60,7 @@ public class VentanaPrincipal extends JFrame {
 	 */
 	//static Connection con ;
 	private JButton btnRecursividad;
-	public VentanaPrincipal(ExampleClient ex) {
+	public VentanaPrincipal(ClienteOperaciones ex) {
 		vent = this;
 		
 		setBounds(250, 225, 1000, 508);

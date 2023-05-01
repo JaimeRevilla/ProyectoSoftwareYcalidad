@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 import java.awt.Component;
 import javax.swing.border.LineBorder;
 
-import es.deusto.spq.client.ExampleClient;
+import es.deusto.spq.client.ClienteOperaciones;
 import es.deusto.spq.server.Producto;
 import es.deusto.spq.server.Usuario;
 import es.deusto.spq.server.jdo.User;
@@ -45,7 +45,7 @@ public class VentanaInicioSesion extends JFrame {
 	public static  ArrayList<Producto> carrito ;
 	public static HashMap<String, ArrayList<Producto>> mapa;
 	private static boolean admin = false;
-	public VentanaInicioSesion(ExampleClient ex) {
+	public VentanaInicioSesion(ClienteOperaciones ex) {
 		carrito = new ArrayList<>();
 		/**
 		 * PROBLEMA. Duda = ¿Cómo establecemos la conexión con la BBDD?
