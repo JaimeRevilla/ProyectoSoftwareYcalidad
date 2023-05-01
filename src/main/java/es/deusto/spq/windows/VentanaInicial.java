@@ -61,7 +61,7 @@ public class VentanaInicial extends JFrame {
 		/**
 		 * DESCOMENTAR JPANEL 
 		 */
-		JPanel panel = new PanelConFondo((new ImageIcon("imagenes/ikea.gif").getImage()));
+		JPanel panel = new PanelConFondo((new ImageIcon("src/main/java/imagenes/img/ikea.gif").getImage()));
 		panelCentro.add(panel);
 		
 		JPanel panel_1 = new JPanel();

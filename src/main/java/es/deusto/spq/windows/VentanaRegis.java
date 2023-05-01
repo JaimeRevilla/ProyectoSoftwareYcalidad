@@ -161,7 +161,7 @@ public class VentanaRegis extends JFrame {
 		panel_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		imagen = new JLabel("");
-		imagen.setIcon(new ImageIcon("imagenes/regis.png"));	
+		imagen.setIcon(new ImageIcon("src/main/java/imagenes/img/regis.png"));	
 		panel_1.add(imagen);
 		
 		JPanel panel = new JPanel();

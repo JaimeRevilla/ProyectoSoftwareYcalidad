@@ -92,7 +92,7 @@ public class VentanaPrincipal extends JFrame {
 		panelNorte.add(panelNorteCentro);
 		
 		lblMenu = new JLabel("");
-		lblMenu.setIcon(new ImageIcon("imagenes/ikeaprincipal.png"));
+		lblMenu.setIcon(new ImageIcon("src/main/java/imagenes/img/ikeaprincipal.png"));
 		panelNorteCentro.add(lblMenu);
 		
 		panelNorteCarrito = new JPanel();
@@ -133,11 +133,11 @@ public class VentanaPrincipal extends JFrame {
 //		panelNorteCarrito.add(btnRecursividad);
 		
 		JButton btnCarrito = new JButton();
-		btnCarrito.setIcon(new ImageIcon("imagenes/pngegg.png"));
+		btnCarrito.setIcon(new ImageIcon("src/main/java/imagenes/img/pngegg.png"));
 		panelNorteCarrito.add(btnCarrito);
 		
 		btnLog = new JButton("");
-		btnLog.setIcon(new ImageIcon("imagenes/btnlogin.png"));
+		btnLog.setIcon(new ImageIcon("src/main/java/imagenes/img/btnlogin.png"));
 		panelNorteCarrito.add(btnLog);
 		
 		btnLog.addActionListener(new ActionListener() {
@@ -174,38 +174,38 @@ public class VentanaPrincipal extends JFrame {
 		btnMuebleCasa = new JButton("ARMARIOS");
 		btnMuebleCasa.setForeground(new Color(0, 0, 0));
 		btnMuebleCasa.setBackground(new Color(255, 255, 255));
-		btnMuebleCasa.setIcon(new ImageIcon("imagenes/mueble.png"));
+		btnMuebleCasa.setIcon(new ImageIcon("src/main/java/imagenes/img/mueble.png"));
 		btnMuebleCasa.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnMuebleCasa.setVerticalTextPosition(SwingConstants.BOTTOM);
 		panelCentro.add(btnMuebleCasa);
 		
 		btnEspejos = new JButton("ESPEJOS");
 		btnEspejos.setForeground(new Color(0, 0, 0));
-		btnEspejos.setIcon(new ImageIcon("imagenes/espejo.png"));
+		btnEspejos.setIcon(new ImageIcon("src/main/java/imagenes/img/espejo.png"));
 		btnEspejos.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnEspejos.setVerticalTextPosition(SwingConstants.BOTTOM);
 		panelCentro.add(btnEspejos);
 		
 		btnSillas = new JButton("SILLAS");
-		btnSillas.setIcon(new ImageIcon("imagenes/silla.png"));
+		btnSillas.setIcon(new ImageIcon("src/main/java/imagenes/img/silla.png"));
 		btnSillas.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnSillas.setVerticalTextPosition(SwingConstants.BOTTOM);
 		panelCentro.add(btnSillas);
 		
 		btnTv = new JButton("TV");
-		btnTv.setIcon(new ImageIcon("imagenes/tv.com.png"));
+		btnTv.setIcon(new ImageIcon("src/main/java/imagenes/img/tv.com.png"));
 		btnTv.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnTv.setVerticalTextPosition(SwingConstants.BOTTOM);
 		panelCentro.add(btnTv);
 		
 		btnSofas = new JButton("SOFAS");
-		btnSofas.setIcon(new ImageIcon("imagenes/sofa.png"));
+		btnSofas.setIcon(new ImageIcon("src/main/java/imagenes/img/sofa.png"));
 		btnSofas.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnSofas.setVerticalTextPosition(SwingConstants.BOTTOM);
 		panelCentro.add(btnSofas);
 		
 		btnCamas = new JButton("CAMAS");
-		btnCamas.setIcon(new ImageIcon("imagenes/cama.com.png"));
+		btnCamas.setIcon(new ImageIcon("src/main/java/imagenes/img/cama.com.png"));
 		btnCamas.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnCamas.setVerticalTextPosition(SwingConstants.BOTTOM);
 		panelCentro.add(btnCamas);

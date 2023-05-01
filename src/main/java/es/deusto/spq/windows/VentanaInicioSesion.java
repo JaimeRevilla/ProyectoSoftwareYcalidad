@@ -171,7 +171,7 @@ public class VentanaInicioSesion extends JFrame {
 		panelCentro.add(panel_2);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("imagenes/login.png"));
+		lblNewLabel_1.setIcon(new ImageIcon("src/main/java/imagenes/img/login.png"));
 		panel_2.add(lblNewLabel_1);
 		
 		JPanel panel_3 = new JPanel();

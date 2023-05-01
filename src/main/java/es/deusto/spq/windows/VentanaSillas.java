@@ -99,7 +99,7 @@ public class VentanaSillas extends JFrame{
 				VentanaCesta v1 = new VentanaCesta();
 			}
 		});
-		btnCarrito_1.setIcon(new ImageIcon("imagenes/pngegg.png"));
+		btnCarrito_1.setIcon(new ImageIcon("src/main/java/imagenes/img/pngegg.png"));
 		panel_2.add(btnCarrito_1);
 		
 		JPanel panelSur = new JPanel();

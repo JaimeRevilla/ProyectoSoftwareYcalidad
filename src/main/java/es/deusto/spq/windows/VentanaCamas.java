@@ -97,7 +97,7 @@ public class VentanaCamas extends JFrame{
 		panelNorte.add(panel_2);
 		
 		JButton btnCarrito= new JButton("");
-		btnCarrito.setIcon(new ImageIcon("imagenes/pngegg.png"));
+		btnCarrito.setIcon(new ImageIcon("src/main/java/imagenes/img/pngegg.png"));
 		panel_2.add(btnCarrito);
 		
 		JPanel panelSur = new JPanel();
