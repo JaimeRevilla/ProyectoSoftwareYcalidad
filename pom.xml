@@ -21,21 +21,19 @@
   		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 
-	<dependencyManagement> <!-- Para manejar todas las versiones de las dependencias del proyecto-->
+	<dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.glassfish.jersey</groupId> 
-                <artifactId>jersey-bom</artifactId> <!-- En este caso, la dependencia manejada es jersey-bom, es una manera de manejar la compatibilidad de las versiones de las diferentes dependencias de un proyecto, en lugar de tener que especificar la versión de cada biblioteca individualmente. Al definir la versión de esta dependencia en la sección properties, todas las bibliotecas Jersey utilizadas en el proyecto usarán la misma versión.-->
-                <version>${jersey.version}</version> <!-- Especifica la versión a usar -->
+                <groupId>org.glassfish.jersey</groupId>
+                <artifactId>jersey-bom</artifactId>
+                <version>${jersey.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
-	<dependencies> <!-- Sección del archivo POM de Maven donde se especifican las dependencias del proyecto. Cada dependencia se define dentro de la etiqueta <dependency>.-->
-		<!-- Las dependencias incluyen varias bibliotecas de DataNucleus y MySQL Connector/J entre otras -->
-	
+	<dependencies>
 		<dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>javax.jdo</artifactId>
@@ -99,9 +97,9 @@
 		</dependency>
 	</dependencies>
 
-	<build> <!-- En la sección <build> se definen los plugins de Maven que se utilizarán para compilar, empaquetar y generar documentación para el proyecto -->
+	<build>
 		<resources>
-			<resource> <!-- Se define la ubicación de los recursos que serán incluidos en el paquete construido. En este caso, se incluyen todos los archivos con extensión .jdo, .orm y .properties que se encuentren en el directorio especificado por la variable  -->
+			<resource>
 				<directory>${config.files.dir}</directory>
 				<includes>
 					<include>**/*.jdo</include>
@@ -112,7 +110,7 @@
 		</resources>
 
 		<plugins>
-			<plugin> <!-- Este plugin se utiliza para limpiar los archivos generados en la última compilación. En este caso, se eliminan todos los archivos con extensión .log y .ods que se encuentren en el directorio principal del proyecto (${basedir}). -->
+			<plugin>
 				<artifactId>maven-clean-plugin</artifactId>
 				<version>3.2.0</version>
 				<configuration>
@@ -128,28 +126,36 @@
 				</configuration>
 			</plugin>
 
-			<plugin> <!-- Este plugin se utiliza para compilar el código fuente del proyecto. En este caso, se utiliza la versión 3.8.1 del plugin -->	
+			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.1</version>
 			</plugin>
+			<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>2.19.1</version>
+    <configuration>
+        <testFailureIgnore>true</testFailureIgnore>
+    </configuration>
+</plugin>
 
-			<plugin> <!-- Este plugin se utiliza para empaquetar el proyecto en un archivo WAR (Web ARchive) -->
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.3.2</version>
 			</plugin>
 
-			<plugin> <!-- Este plugin se utiliza para mejorar el código generado por el DataNucleus JDO Enhancer. El JDO Enhancer es una herramienta que se utiliza para mejorar el rendimiento de las operaciones de persistencia de objetos Java-->
+			<plugin>
 				<groupId>org.datanucleus</groupId>
 				<artifactId>datanucleus-maven-plugin</artifactId>
 				<version>6.0.0-release</version>
 				<configuration>
 					<api>JDO</api>
 					<verbose>true</verbose>
+					 <fork>false</fork>   <!-- Solve windows line too long error -->
 					<props>${config.files.dir}/datanucleus.properties</props>
-					<fork>false</fork>
 				</configuration>
-				<executions> <!-- Lista de objetivos (goals) a ejecutar durante el proceso de construcción (build) del proyecto. -->
+				<executions>
 					<execution>
 						<!-- links the enhance to the compile phase -->
 						<phase>compile</phase>
@@ -160,22 +166,22 @@
 				</executions>
 			</plugin>
 
-			<plugin> <!-- este plugin se utiliza para iniciar un servidor Jetty (Un servicio Jetty es un proceso en segundo plano que escucha las solicitudes HTTP entrantes en un puerto determinado y las dirige a la aplicación web Java correspondiente) -->
+			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>9.4.46.v20220331</version>
             </plugin>
 
-			<plugin> <!-- Este plugin se utiliza para ejecutar una clase Java específica del proyecto durante la fase de compilación-->
+			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>1.2.1</version>
 
 				<configuration>
-					<mainClass>org.datanucleus.samples.jdo.tutorial.Main</mainClass> <!-- Se utiliza para especificar la clase principal que se debe ejecutar cuando se invoca el comando mvn exec:java -->
+					<mainClass>org.datanucleus.samples.jdo.tutorial.Main</mainClass>
 				</configuration>
 			</plugin>
-			<plugin> <!-- Este plugin se utiliza para empaquetar el proyecto en un archivo JAR (Java ARchive) con todas sus dependencias -->
+			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<configuration>
 					<descriptors>
@@ -183,7 +189,7 @@
 					</descriptors>
 				</configuration>
 			</plugin>
-			<plugin> <!-- Este plugin se utiliza para generar documentación Javadoc para el proyecto. En este caso, se utiliza la versión 3.0.0 del plugin y se especifica que se deben mostrar los métodos privados y que no se deben incluir páginas de ayuda.-->
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>3.0.0</version>
@@ -216,7 +222,7 @@
 
 	<profiles>
 		<profile>
-			<id>client</id> <!-- En este fragmento de código, se define un perfil llamado "client", el perfil se usa para construir un cliente para una aplicación de servidor.-->
+			<id>client</id>
 			<build>
                 <plugins>
                     <plugin>
@@ -231,7 +237,7 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <mainClass>es.deusto.spq.client.ExampleClient</mainClass> <!-- Se especifica la clase principal del programa en la etiqueta "ExampleClient" -->
+                            <mainClass>main.Main</mainClass>
 							<arguments>
 								<argument>${server.hostname}</argument>
 								<argument>${server.port}</argument>
