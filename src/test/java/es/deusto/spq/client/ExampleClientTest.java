@@ -57,7 +57,7 @@ public class ExampleClientTest {
     }
 
     @Test
-    public void testRegisterUser() {
+    public void testRegisterUser() { 
         when(webTarget.path("register")).thenReturn(webTarget);
 
         Response response = Response.ok().build();
@@ -84,6 +84,32 @@ public class ExampleClientTest {
         assertEquals("email", userDataEntityCaptor.getValue().getEntity().getEmail());
     }
 
+//    @Test
+//	public void testLogUser() {
+//		 when(webTarget.path("login")).thenReturn(webTarget);
+//		 
+//		 Response response = Response.ok().build();
+//		 when(webTarget.request(MediaType.APPLICATION_JSON).post(any(Entity.class))).thenReturn(response);
+//		 
+//		 verify(webTarget.request(MediaType.APPLICATION_JSON)).post(userDataEntityCaptor.capture());
+//		 assertEquals("test-login", userDataEntityCaptor.getValue().getEntity().getLogin());
+//		 assertEquals("email", userDataEntityCaptor.getValue().getEntity().getEmail());
+//		 assertEquals("passwd", userDataEntityCaptor.getValue().getEntity().getContrasenia());
+//	}
+//	
+//	@Test
+//    public void testLogUserWithError() {
+//		when(webTarget.path("login")).thenReturn(webTarget);
+//
+//        Response response = Response.serverError().build();
+//        when(webTarget.request(MediaType.APPLICATION_JSON).post(any(Entity.class))).thenReturn(response);
+//       
+//        verify(webTarget.request(MediaType.APPLICATION_JSON)).post(userDataEntityCaptor.capture());
+//        assertEquals("test-login", userDataEntityCaptor.getValue().getEntity().getLogin());
+//        assertEquals("email", userDataEntityCaptor.getValue().getEntity().getEmail());
+//        assertEquals("passwd", userDataEntityCaptor.getValue().getEntity().getContrasenia());
+//    }
+    
 //    @Test
 //    public void testSayMessage() {
 //        when(webTarget.path("sayMessage")).thenReturn(webTarget);
