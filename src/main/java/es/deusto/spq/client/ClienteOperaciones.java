@@ -26,13 +26,13 @@ public class ClienteOperaciones {
 	private static final String MAIL = "dipina";
 	
 	private Client client;
-	private WebTarget webTarget;
+	private static WebTarget webTarget;
 
 	public ClienteOperaciones(String hostname, String port) {
 		client = ClientBuilder.newClient();
 		webTarget = client.target(String.format("http://%s:%s/rest/resource", hostname, port));
 	}
-	public boolean registerUser(String login, String password, String email) {
+	public static boolean registerUser(String login, String password, String email) {
 		WebTarget registerUserWebTarget = webTarget.path("register");
 		//Invocation.Builder invocationBuilder = registerUserWebTarget.request(MediaType.APPLICATION_JSON);
 		
@@ -94,19 +94,19 @@ public class ClienteOperaciones {
 //		}
 //	}
 
-//	public static void main(String[] args) {
-//		if (args.length != 2) {
-//			logger.info("Use: java Client.Client [host] [port]");
-//			System.exit(0);
-//		}
-//
-//		String hostname = args[0];
-//		String port = args[1];
-//
-//		ExampleClient exampleClient = new ExampleClient(hostname, port);
-//		new VentanaInicial(exampleClient);
-//		exampleClient.registerUser(USER, PASSWORD, MAIL);
-////		exampleClient.sayMessage(USER, PASSWORD, "This is a test!...");
-////	 
-//	}
+	public static void main(String[] args) {
+		if (args.length != 2) {
+			logger.info("Use: java Client.Client [host] [port]");
+			System.exit(0);
+		}
+
+		String hostname = args[0];
+		String port = args[1];
+
+		ClienteOperaciones clienteOP = new ClienteOperaciones(hostname, port);
+		new VentanaInicial(clienteOP);
+		ClienteOperaciones.registerUser(USER, PASSWORD, MAIL);
+//		exampleClient.sayMessage(USER, PASSWORD, "This is a test!...");
+//	 
+	}
 }
