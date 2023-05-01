@@ -23,8 +23,8 @@ public class Message {
         this.user = user;
     }
 
-    public String toString() {
-        return "Message: message --> " + this.text + ", timestamp -->  " + new Date(this.timestamp);
-    }
-    //H
+//    public String toString() {
+//        return "Message: message --> " + this.text + ", timestamp -->  " + new Date(this.timestamp);
+//    }
+//    //H
 }

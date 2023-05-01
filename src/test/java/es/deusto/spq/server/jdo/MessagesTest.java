@@ -33,6 +33,6 @@ public class MessagesTest {
 
 //    @Test
 //    public void testToString() {
-//        assertEquals("Message: message --> Hello world!, timestamp -->  2023-03-23T19:15:22.000+0100", message.toString());
+//        assertEquals("Message: message --> Hello world!, timestamp -->  Mon May 01 14:02:34 CEST 2023", message.toString());
 //    }
 }   

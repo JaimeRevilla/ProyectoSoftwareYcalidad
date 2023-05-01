@@ -91,4 +91,5 @@ public class CarritoTest {
 		carrito.setCantidad(1);
 	    assertEquals(1, carrito.getCantidad());
 	}
+	
 }

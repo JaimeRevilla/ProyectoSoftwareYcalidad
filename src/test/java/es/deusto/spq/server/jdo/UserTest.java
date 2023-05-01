@@ -37,6 +37,11 @@ public class UserTest {
         user.setPassword("newpasswd");
         assertEquals("newpasswd", user.getPassword());
     }
+    @Test
+    public void testSetEmail() {
+        user.setEmail("newemail");
+        assertEquals("newemail", user.getEmail());
+    }
 
 //    @Test
 //    public void testGetMessages() {

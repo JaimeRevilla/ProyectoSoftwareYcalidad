@@ -172,11 +172,11 @@ public class Carrito {
 	/**
 	 * Metodo de toString, nos ayudara a saber como queremos devolvolver la informacion de la clase
 	 */
-	@Override
-	public String toString() {
-		return "Carrito [dni=" + dni + ", cod=" + cod + ", nom=" + nom + ", tipo=" + tipo + ", marca=" + marca
-				+ ", tamanyo=" + tamanyo + ", cantidad=" + cantidad + ", precio=" + precio + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Carrito [dni=" + dni + ", cod=" + cod + ", nom=" + nom + ", tipo=" + tipo + ", marca=" + marca
+//				+ ", tamanyo=" + tamanyo + ", cantidad=" + cantidad + ", precio=" + precio + "]";
+//	}
 
 	
 	
