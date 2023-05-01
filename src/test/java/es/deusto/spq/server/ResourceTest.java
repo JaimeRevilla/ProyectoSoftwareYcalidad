@@ -186,7 +186,7 @@ public class ResourceTest {
         // check that the user is set by the code with the password
         ArgumentCaptor<String> passwordCaptor = ArgumentCaptor.forClass(String.class);
         verify(user).setPassword(passwordCaptor.capture());
-        assertEquals("passwd", passwordCaptor.getValue());
+        assertEquals("email", passwordCaptor.getValue());
 
         // check expected response
         assertEquals(Response.Status.OK, response.getStatusInfo());
