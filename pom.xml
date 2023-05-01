@@ -4,11 +4,11 @@
 	
 	<modelVersion>4.0.0</modelVersion> <!-- Versión de POM que se está utilizando, -->
 	
-	<groupId>org.datanucleus</groupId> 
-	<artifactId>datanucleus-jersey-jdo-mysql</artifactId> <!-- Proporciona soporte para la integración de Jersey, Datanucleus  y MySQL para el proyecto.-->
+	<groupId>DeustoIkea</groupId> 
+	<artifactId>DeustoIkea</artifactId> <!-- Proporciona soporte para la integración de Jersey, Datanucleus  y MySQL para el proyecto.-->
 	<packaging>war</packaging>  <!-- Especifica el tipo de empaquetado que se usará para el artefacto. En este caso, es un archivo WAR, que es un archivo de implementación web Java. -->
 	<version>1.0-SNAPSHOT</version>
-	<name>Jersey + Datanucleus + MySQL</name>
+	<name>DeustoIkea</name>
 
 	<properties> <!-- Se definen una serie de propiedades que serán utilizadas en diferentes partes del proyecto. -->
 		<maven.compiler.release>8</maven.compiler.release> <!-- Indica la versión del compilador de Java que se utilizará para compilar el código del proyecto -->
@@ -237,7 +237,7 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <mainClass>main.Main</mainClass>
+                            <mainClass>es.deusto.spq.client.ClienteOperaciones</mainClass>
 							<arguments>
 								<argument>${server.hostname}</argument>
 								<argument>${server.port}</argument>
