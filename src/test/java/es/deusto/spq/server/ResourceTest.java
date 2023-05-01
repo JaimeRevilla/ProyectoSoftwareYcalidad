@@ -212,7 +212,7 @@ public class ResourceTest {
         } else {
 	        // check that the user is set by the code with the password
 	        ArgumentCaptor<String> passwordCaptor = ArgumentCaptor.forClass(String.class);
-	        verify(userData).setContrasenia(passwordCaptor.capture());
+	        verify(user).setPassword(passwordCaptor.capture());
 	        assertEquals("passwd", passwordCaptor.getValue());
 	
 	        // check expected response

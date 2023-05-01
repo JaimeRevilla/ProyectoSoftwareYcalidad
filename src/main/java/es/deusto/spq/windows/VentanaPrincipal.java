@@ -21,7 +21,6 @@ import java.awt.Component;
 import javax.swing.border.LineBorder;
 
 import es.deusto.spq.client.ExampleClient;
-import es.deusto.spq.server.BaseDatos;
 import es.deusto.spq.server.Producto;
 
 import java.awt.event.ActionListener;

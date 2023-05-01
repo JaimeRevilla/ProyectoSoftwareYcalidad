@@ -17,6 +17,6 @@ public class Banio extends Producto{
 		this.tipoBanio = tipoBanio;
 	}
 	
-	//Falta toString
+	
 	
 }

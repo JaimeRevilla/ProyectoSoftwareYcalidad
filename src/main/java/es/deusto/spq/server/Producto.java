@@ -167,11 +167,11 @@ public class Producto {
 	/**
 	 * Método toString de como vamos a ver la informacion del producto
 	 */
-	@Override
-	public String toString() {
-		return "Producto: Codigo=" + cod +"\n, Nombre=" + nombre + ", Tipo=" + tipo + ", Marca=" + marca + ",Tamaño="
-				+ tamanyo + ", precio=" + precio + ", stock=" + stock + "";
-	}
+//	@Override
+//	public String toString() {
+//		return "Producto: Codigo=" + cod +"\n, Nombre=" + nombre + ", Tipo=" + tipo + ", Marca=" + marca + ",Tamaño="
+//				+ tamanyo + ", precio=" + precio + ", stock=" + stock + "";
+//	}
 
 	
 	
