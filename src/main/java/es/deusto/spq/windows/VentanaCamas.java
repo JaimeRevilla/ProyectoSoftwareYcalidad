@@ -133,7 +133,7 @@ public class VentanaCamas extends JFrame{
 			}
 		});
 
-		modelCamas = new JTableButtonModel();
+//		modelCamas = new JTableButtonModel();
 		
 		
 		tablaCamas = new JTable(modelCamas);
@@ -284,16 +284,16 @@ public class VentanaCamas extends JFrame{
 
 	
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaCamas frame = new VentanaCamas();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					VentanaCamas frame = new VentanaCamas();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 }

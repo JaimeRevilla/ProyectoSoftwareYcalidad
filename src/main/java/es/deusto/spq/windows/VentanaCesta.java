@@ -113,11 +113,11 @@ public class VentanaCesta extends JFrame {
 		getContentPane().add(panelCentroEste, BorderLayout.EAST);
 		panelCentroEste.setLayout(new GridLayout(0, 1, 0, 0));
 
-		JButton btnNewButton = new JButton("");
+		JButton btnNewButton = new JButton("COMPRAR");
 		btnNewButton.setIcon(new ImageIcon("imagenes/compra.png"));
 		panelCentroEste.add(btnNewButton);
 		
-		JButton btnFactura = new JButton("");
+		JButton btnFactura = new JButton("FACTURA");
 		btnFactura.setIcon(new ImageIcon("imagenes/factura.png"));
 		panelCentroEste.add(btnFactura);
 		
@@ -141,7 +141,7 @@ public class VentanaCesta extends JFrame {
 		
 		scrollTabla = new JScrollPane(tablaCesta);
 		
-		JButton btnBorrarProducto = new JButton("");
+		JButton btnBorrarProducto = new JButton("ELIMINAR PRODUCTO");
 		btnBorrarProducto.setIcon(new ImageIcon("imagenes/borrar.png"));
 		btnBorrarProducto.addActionListener(new ActionListener() {
 			@Override

@@ -127,7 +127,7 @@ public class VentanaSofas extends JFrame{
 			}
 		});
 
-		modelSofa = new JTableButtonModel();
+//		modelSofa = new JTableButtonModel();
 		
 		
 		tablaSofas = new JTable(modelSofa);
@@ -278,17 +278,17 @@ public class VentanaSofas extends JFrame{
 
 	
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaSofas frame = new VentanaSofas();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					VentanaSofas frame = new VentanaSofas();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 }
 

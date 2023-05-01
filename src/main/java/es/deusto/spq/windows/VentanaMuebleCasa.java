@@ -134,7 +134,7 @@ public VentanaMuebleCasa() {
 			}
 		});
 
-		modelArmarios = new JTableButtonModel();
+//		modelArmarios = new JTableButtonModel();
 		
 		
 		tablaArmarios = new JTable(modelArmarios);
@@ -285,16 +285,16 @@ public VentanaMuebleCasa() {
 
 	
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaMuebleCasa frame = new VentanaMuebleCasa();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					VentanaMuebleCasa frame = new VentanaMuebleCasa();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 }

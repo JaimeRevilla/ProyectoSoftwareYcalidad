@@ -125,7 +125,7 @@ public class VentanaEspejos extends JFrame{
 			}
 		});
 
-		modelespejos = new JTableButtonModel();
+//		modelespejos = new JTableButtonModel();
 		
 		
 		tablaEspejos = new JTable(modelespejos);
@@ -276,17 +276,17 @@ public class VentanaEspejos extends JFrame{
 
 	
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaEspejos frame = new VentanaEspejos();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					VentanaEspejos frame = new VentanaEspejos();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 }
 
