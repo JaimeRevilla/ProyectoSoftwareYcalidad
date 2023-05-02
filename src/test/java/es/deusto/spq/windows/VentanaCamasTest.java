@@ -4,7 +4,7 @@ import org.junit.Test;
 
 public class VentanaCamasTest {
 	@Test
-	public void testLogInWindow() {
+	public void testVentanaCamas() {
 		VentanaCamas ventanaCamas = new VentanaCamas();
 	}
 }
