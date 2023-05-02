@@ -9,8 +9,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import es.deusto.spq.pojo.DirectMessage;
-import es.deusto.spq.pojo.MessageData;
 import es.deusto.spq.pojo.UserData;
 import es.deusto.spq.windows.VentanaInicial;
 
@@ -109,4 +107,6 @@ public class ClienteOperaciones {
 //		exampleClient.sayMessage(USER, PASSWORD, "This is a test!...");
 //	 
 	}
+	
+	
 }

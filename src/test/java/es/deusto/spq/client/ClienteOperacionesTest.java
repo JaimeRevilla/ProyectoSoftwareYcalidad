@@ -4,7 +4,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -26,6 +29,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import es.deusto.spq.pojo.UserData;
+import es.deusto.spq.windows.VentanaInicial;
 
 
 public class ClienteOperacionesTest { 
@@ -43,6 +47,11 @@ public class ClienteOperacionesTest {
 //    private ArgumentCaptor<Entity<DirectMessage>> directMessageEntityCaptor;
 
     private ClienteOperaciones exampleClient;
+    
+    private static final String USER = "dipina";
+	private static final String PASSWORD = "dipina";
+	private static final String MAIL = "dipina";
+	
 
     @Before
     public void setUp() {
@@ -140,4 +149,30 @@ public class ClienteOperacionesTest {
 //        assertEquals("test-login", directMessageEntityCaptor.getValue().getEntity().getUserData().getLogin());
 //        assertEquals("passwd", directMessageEntityCaptor.getValue().getEntity().getUserData().getPassword());
 //    }
+//
+//	  @Test
+//	  public void testMain() {
+//	    String hostname = "localhost";
+//	    String port = "8080";
+//	    ClienteOperaciones clienteOP = new ClienteOperaciones(hostname, port);
+//
+//	    String user = "test_user";
+//	    String password = "test_password";
+//	    String mail = "test_mail@example.com";
+//
+//	    clienteOP = spy(clienteOP);
+//	    Response response = mock(Response.class);
+//	    when(response.getStatus()).thenReturn(Response.Status.OK.getStatusCode());
+//	    assertTrue(ClienteOperaciones.registerUser(user, password, mail));
+//	    
+//	    verify(webTarget.request(MediaType.APPLICATION_JSON)).post(userDataEntityCaptor.capture());
+//	    assertEquals(user, userDataEntityCaptor.getValue().getEntity().getLogin());
+//	    assertEquals(password, userDataEntityCaptor.getValue().getEntity().getContrasenia());
+//	    assertEquals(mail, userDataEntityCaptor.getValue().getEntity().getEmail());
+//	    VentanaInicial loginWindow = new VentanaInicial(null);
+////  
+//	  }
 }
+
+
+

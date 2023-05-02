@@ -1,6 +1,7 @@
 package es.deusto.spq.pojo;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -41,4 +42,23 @@ public class UserDataTest {
     	userData.setDni("newDni");
     	assertEquals("newDni", userData.getDni());
     }
+    
+
+
+        @Test
+        public void testUserDataConstructor() {
+            String nombre = "Juan Perez";
+            String dni = "12345678A";
+            String contrasenia = "123456";
+            String email = null;
+            UserData userData = new UserData(nombre, dni, null, contrasenia);
+            assertNotNull(userData);
+            assertEquals(nombre, userData.getNombre());
+            assertEquals(dni, userData.getDni());
+            assertEquals(email, userData.getEmail());
+            assertEquals(contrasenia, userData.getContrasenia());
+        }
+
 }
+
+
