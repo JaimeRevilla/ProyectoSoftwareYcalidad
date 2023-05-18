@@ -32,6 +32,7 @@ public class Resource {
 	private int cont = 0;
 	private PersistenceManager pm=null;
 	private Transaction tx=null;
+	
 
 	public Resource() {
 		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
@@ -172,6 +173,32 @@ public class Resource {
                 }
             } else {
                 return Response.serverError().build();
+            }
+            tx.commit();
+            return Response.ok().build();
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+
+        }
+    }
+	
+	@POST
+    @Path("/product")
+    public Response ObtenerProducto(Producto product, String nombre) {
+        try
+        {
+            tx.begin();
+            logger.info("Checking whether the user already exits or not: '{}'", nombre);
+           
+            try {
+                product = pm.getObjectById(Producto.class, nombre);
+            } catch (javax.jdo.JDOObjectNotFoundException jonfe) {
+                logger.info("Exception launched: {}", jonfe.getMessage());
             }
             tx.commit();
             return Response.ok().build();
