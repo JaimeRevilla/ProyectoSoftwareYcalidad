@@ -242,7 +242,10 @@ public class VentanaTv extends JFrame{
 			public JTableButtonModel() {
 				super();
 				ArrayList<Object[]> alObject = new ArrayList<>();
+
 				al = ex.obtenerProducto("TV");
+
+				al = resource.ObtenerProducto("Tv");
 				for(Producto p : al) {
 					JButton btnAnadir = new JButton("AÑADIR");
 					

@@ -3,6 +3,9 @@ package es.deusto.spq.server;
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Query;
+
+import java.util.ArrayList;
+
 import javax.jdo.JDOHelper;
 import javax.jdo.Transaction;
 
@@ -187,6 +190,7 @@ public class Resource {
         }
     }
 	
+
 	@POST
     @Path("/product")
     public Response ObtenerProducto(Producto product, String nombre) throws Exception {
@@ -214,6 +218,33 @@ public class Resource {
             }
 
         }
+    }
+	public ArrayList<Producto> ObtenerProducto(String nombreP) {
+		Producto producto = null;
+		ArrayList<Producto> al = null;
+		try{
+			tx.begin();
+			logger.info("Creating query ...");
+			
+			try (Query<?> q = pm.newQuery("SELECT FROM " + Producto.class + " WHERE nombre == \"" + nombreP + "\"" )) {
+				q.setUnique(true);
+				producto = (Producto)q.execute();
+				al.add(producto);
+				
+				logger.info("Producto cargado: {}", producto);
+
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			tx.commit();
+			return al;
+
+		} finally {
+			if (tx.isActive()) {
+				tx.rollback();
+			}
+		}
     }
 //	CODIGO QUE ESTABA YA 
 //	@POST
