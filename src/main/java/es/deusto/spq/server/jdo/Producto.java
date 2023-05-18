@@ -49,6 +49,11 @@ public class Producto {
 		return ruta;
 	}
 
+	public Producto(String nombre) {
+		super();
+		this.nombre = nombre;
+	}
+
 	/**
 	 * Método set del atributo ruta, el atributo ruta es un String
 	 * @param ruta

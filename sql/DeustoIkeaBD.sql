@@ -10,3 +10,5 @@ CREATE USER IF NOT EXISTS 'spq'@'localhost' IDENTIFIED BY 'spq';
 
 GRANT ALL ON productsDB.* TO 'spq'@'localhost';
 SHOW TABLES FROM productsDB;
+
+INSERT INTO PRODUCTO VALUES (0, 'Armario', 'ROBLE', 'IKEA','250x58x236 cm', 200.5,200,'imagenes/armarioRoble.png');

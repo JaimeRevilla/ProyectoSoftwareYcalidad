@@ -33,6 +33,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 
+import es.deusto.spq.client.ClienteOperaciones;
 import es.deusto.spq.server.Producto;
 import es.deusto.spq.server.Resource;
 
@@ -58,7 +59,7 @@ public class VentanaTv extends JFrame{
 	
 	private ArrayList<Producto> al;
 	
-	public VentanaTv() {
+	public VentanaTv(ClienteOperaciones ex) {
 		
 		setBounds(250, 225, 1000, 508);
 		
@@ -131,7 +132,7 @@ public class VentanaTv extends JFrame{
 			}
 		});
 
-//		modelTV = new JTableButtonModel();
+		modelTV = new JTableButtonModel();
 		
 		
 		tablaTV = new JTable(modelTV);
@@ -231,6 +232,7 @@ public class VentanaTv extends JFrame{
 		}
 		
 		class JTableButtonModel extends AbstractTableModel {
+			ClienteOperaciones ex;
 			private Object[][] rows;
 			private String[] columns = {"CODIGO", "NOMBRE", "TIPO", "MARCA", "TAMAÑO", "PRECIO", "STOCK", ""};
 			   
@@ -240,7 +242,7 @@ public class VentanaTv extends JFrame{
 			public JTableButtonModel() {
 				super();
 				ArrayList<Object[]> alObject = new ArrayList<>();
-				//al = resource.ObtenerProducto("Tv");
+				al = ex.obtenerProducto("TV");
 				for(Producto p : al) {
 					JButton btnAnadir = new JButton("AÑADIR");
 					

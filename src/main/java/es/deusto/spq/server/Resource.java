@@ -189,14 +189,17 @@ public class Resource {
 	
 	@POST
     @Path("/product")
-    public Response ObtenerProducto(Producto product, String nombre) {
-        try
+    public Response ObtenerProducto(Producto product, String nombre) throws Exception {
+        Producto producto = null;
+		try
         {
             tx.begin();
             logger.info("Checking whether the user already exits or not: '{}'", nombre);
            
-            try {
-                product = pm.getObjectById(Producto.class, nombre);
+            try (Query<?> q = pm.newQuery("SELECT FORM"+ Producto.class.getName()+"WHERE NOMBRE == "+ product.getNombre())) {
+                q.setUnique(true);
+                producto = (Producto)q.execute();
+                logger.info("Producto retrieved: {}", producto);
             } catch (javax.jdo.JDOObjectNotFoundException jonfe) {
                 logger.info("Exception launched: {}", jonfe.getMessage());
             }

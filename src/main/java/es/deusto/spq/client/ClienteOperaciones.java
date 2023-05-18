@@ -1,5 +1,7 @@
 package es.deusto.spq.client;
 
+import java.util.ArrayList;
+
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
@@ -10,6 +12,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import es.deusto.spq.pojo.UserData;
+import es.deusto.spq.server.jdo.Producto;
 import es.deusto.spq.windows.VentanaInicial;
 
 import org.apache.logging.log4j.LogManager;
@@ -49,6 +52,25 @@ public class ClienteOperaciones {
 		}
 	}
 	
+	public ArrayList<es.deusto.spq.server.Producto> obtenerProducto(String nombre) {
+        ArrayList<Producto> prod = new ArrayList<>();
+		WebTarget registerUserWebTarget = webTarget.path("product");
+        Invocation.Builder invocationBuilder = registerUserWebTarget.request(MediaType.APPLICATION_JSON);
+
+        Producto producto = new Producto(nombre);
+        producto.getNombre();
+        prod.add(producto);
+        Response response = invocationBuilder.post(Entity.entity(producto, MediaType.APPLICATION_JSON));
+        if (response.getStatus() != Status.OK.getStatusCode()) {
+            logger.error("Error connecting with the server. Code: {}", response.getStatus());
+        } else {
+        	logger.info("producto obtenido");
+//            GestorAgenda mgt = new GestorAgenda();
+//            mgt.lanza();
+        }
+		return null;
+    }
+
 	public boolean logUser(String name, String password) {
         WebTarget registerUserWebTarget = webTarget.path("login");
         Invocation.Builder invocationBuilder = registerUserWebTarget.request(MediaType.APPLICATION_JSON);
@@ -67,7 +89,6 @@ public class ClienteOperaciones {
 //            mgt.lanza();
         }
     }
-
 //	public void sayMessage(String login, String password, String message) {
 //		WebTarget sayHelloWebTarget = webTarget.path("sayMessage");
 //		Invocation.Builder invocationBuilder = sayHelloWebTarget.request(MediaType.APPLICATION_JSON);
