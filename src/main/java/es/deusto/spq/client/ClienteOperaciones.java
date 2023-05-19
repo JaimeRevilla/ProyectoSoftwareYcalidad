@@ -52,7 +52,7 @@ public class ClienteOperaciones {
 		}
 	}
 	
-	public ArrayList<es.deusto.spq.server.Producto> obtenerProducto(String nombre) {
+	public static ArrayList<Producto> obtenerProducto(String nombre) {
         ArrayList<Producto> prod = new ArrayList<>();
 		WebTarget registerUserWebTarget = webTarget.path("product");
         Invocation.Builder invocationBuilder = registerUserWebTarget.request(MediaType.APPLICATION_JSON);
@@ -68,7 +68,7 @@ public class ClienteOperaciones {
 //            GestorAgenda mgt = new GestorAgenda();
 //            mgt.lanza();
         }
-		return null;
+		return prod;
     }
 
 	public boolean logUser(String name, String password) {

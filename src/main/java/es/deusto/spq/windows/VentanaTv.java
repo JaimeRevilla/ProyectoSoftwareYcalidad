@@ -57,7 +57,7 @@ public class VentanaTv extends JFrame{
 	public static JTableButtonModel modelTV;
 	private JScrollPane scrTV;
 	
-	private ArrayList<Producto> al;
+	private ArrayList<es.deusto.spq.server.jdo.Producto> al;
 	
 	public VentanaTv(ClienteOperaciones ex) {
 		
@@ -239,27 +239,26 @@ public class VentanaTv extends JFrame{
 			public String getColumnName(int column) {
 				return columns[column];
 			}
-			public JTableButtonModel() {
-				super();
-				ArrayList<Object[]> alObject = new ArrayList<>();
-
-				al = ex.obtenerProducto("TV");
-
-				al = resource.ObtenerProducto("Tv");
-				for(Producto p : al) {
-					JButton btnAnadir = new JButton("AÑADIR");
-					
-					Object [] datos = {p.getCod(), p.getNombre(), p.getTipo(), p.getMarca(), p.getTamanyo(), p.getPrecio(), p.getStock(),btnAnadir};
-					alObject.add(datos);
-				}
-				Object[][] ob1 = new Object[alObject.size()][alObject.get(0).length]; 
-				int ob2 = 0;
-				for(Object[] ob : alObject) {
-					ob1[ob2] = ob; 
-					ob2++;
-				}
-				this.rows =  ob1;
-			}
+//			public JTableButtonModel() {
+//				super();
+//				ArrayList<Producto> alObject = new ArrayList<>();
+//
+//				al = ex.obtenerProducto("TV");
+//
+//				for(es.deusto.spq.server.jdo.Producto p : al) {
+//					JButton btnAnadir = new JButton("AÑADIR");
+//					
+//					Object [] datos = {p.getCod(), p.getNombre(), p.getTipo(), p.getMarca(), p.getTamanyo(), p.getPrecio(), p.getStock(),btnAnadir};
+//					alObject.add(datos);
+//				}
+//				Object[][] ob1 = new Object[alObject.size()][alObject.get(0).length]; 
+//				int ob2 = 0;
+//				for(Object[] ob : alObject) {
+//					ob1[ob2] = ob; 
+//					ob2++;
+//				}
+//				this.rows =  ob1;
+//			}
 			
 			public int getRowCount() {
 				return rows.length;
