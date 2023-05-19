@@ -219,33 +219,35 @@ public class Resource {
 
         }
     }
-	public ArrayList<Producto> ObtenerProducto(String nombreP) {
-		Producto producto = null;
-		ArrayList<Producto> al = null;
-		try{
-			tx.begin();
-			logger.info("Creating query ...");
-			
-			try (Query<?> q = pm.newQuery("SELECT FROM " + Producto.class + " WHERE nombre == \"" + nombreP + "\"" )) {
-				q.setUnique(true);
-				producto = (Producto)q.execute();
-				al.add(producto);
-				
-				logger.info("Producto cargado: {}", producto);
-
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			tx.commit();
-			return al;
-
-		} finally {
-			if (tx.isActive()) {
-				tx.rollback();
-			}
-		}
-    }
+//	@POST
+//    @Path("/obtenerProducto")
+//	public ArrayList<Producto> ObtenerProducto(String nombreP) {
+//		Producto producto = null;
+//		ArrayList<Producto> al = null;
+//		try{
+//			tx.begin();
+//			logger.info("Creating query ...");
+//			
+//			try (Query<?> q = pm.newQuery("SELECT FROM " + Producto.class + " WHERE nombre == \"" + nombreP + "\"" )) {
+//				q.setUnique(true);
+//				producto = (Producto)q.execute();
+//				al.add(producto);
+//				
+//				logger.info("Producto cargado: {}", producto);
+//
+//
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//			tx.commit();
+//			return al;
+//
+//		} finally {
+//			if (tx.isActive()) {
+//				tx.rollback();
+//			}
+//		}
+//    }
 //	CODIGO QUE ESTABA YA 
 //	@POST
 //	@Path("/register")
@@ -283,6 +285,49 @@ public class Resource {
 //      
 //		}
 //	}
+	
+	@POST
+    @Path("/añadirProducto")
+    public Response añadirProducto(Producto producto) {
+//		0;Armario;ROBLE;IKEA;250x58x236 cm;200.5;200;imagenes/armarioRoble.png
+//		1;Armario;ABEDUL;IKEA;250x58x236 cm;100.5;200;imagenes/armarioAbedul.png
+//		2;Armario;PINO;IKEA;250x58x236 cm;50.5;200;imagenes/armarioPino.png
+//		3;Armario;EUCALIPTO;IKEA;250x58x236 cm;25.5;200;imagenes/armarioEucalipto.png
+//		4;Armario;HAYA;IKEA;250x58x236 cm;190.9;200;imagenes/armarioHaya.png
+//		5;Cama;LITERA;IKEA;140x190 cm;300.2;200;imagenes/camasLitera.png
+//		6;Cama;SOFA_CAMA;IKEA;140x190 cm;250.0;200;imagenes/camaSofacama.png
+//		7;Cama;ACUATICA;IKEA;140x190 cm;600.9;200;imagenes/camaAcuatica.png
+//		8;Cama;ELECTRICA;IKEA;140x190 cm;900.9;200;imagenes/camaElectrica.png
+		try
+        {
+            tx.begin();
+            logger.info("Checking whether the producto already exits or not: '{}'", producto.getNombre());
+            try {
+                producto = pm.getObjectById(Producto.class, producto.getNombre());
+            } catch (javax.jdo.JDOObjectNotFoundException jonfe) {
+                logger.info("Exception launched: {}", jonfe.getMessage());
+            }
+            logger.info("Producto: {}", producto);
+            if (producto != null) {
+                return Response.serverError().build();
+            } else {
+                logger.info("Creating product: {}", producto);
+               producto = new Producto(producto.getCod(), producto.getNombre(),producto.getTipo(), producto.getMarca(), producto.getTamanyo(), producto.getPrecio(), producto.getStock(), producto.getRuta());
+                pm.makePersistent(producto);
+                logger.info("Producto created: {}", producto);
+            }
+            tx.commit();
+            return Response.ok().build();
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+
+        }
+    }
 
 	@GET
 	@Path("/hello")

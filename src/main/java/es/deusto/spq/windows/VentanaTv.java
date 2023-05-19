@@ -54,7 +54,7 @@ public class VentanaTv extends JFrame{
 	private JPanel panelCentral;
 	
 	private JTable tablaTV;
-	public static JTableButtonModel modelTV;
+//	public static JTableButtonModel modelTV;
 	private JScrollPane scrTV;
 	
 	private ArrayList<es.deusto.spq.server.jdo.Producto> al;
@@ -132,10 +132,10 @@ public class VentanaTv extends JFrame{
 			}
 		});
 
-		modelTV = new JTableButtonModel();
+//		modelTV = new JTableButtonModel();
 		
 		
-		tablaTV = new JTable(modelTV);
+//		tablaTV = new JTable(modelTV);
 		TableCellRenderer tbcr = tablaTV.getDefaultRenderer(JButton.class);
 		tablaTV.setDefaultRenderer(JButton.class, new JTableButtonRenderer(tbcr));
 		scrTV = new JScrollPane(tablaTV);
@@ -168,18 +168,18 @@ public class VentanaTv extends JFrame{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				int fila = tablaTV.rowAtPoint(e.getPoint());
-				String tipo = (String) modelTV.getValueAt(fila, 2);
+//				String tipo = (String) modelTV.getValueAt(fila, 2);
 //				String ruta = BaseDatos.getRuta(con, tipo);
 //				ImageIcon imagen = new ImageIcon(ruta);
 //				panelFoto.setImagen(imagen.getImage());
 				panelFoto.repaint();
-				if(tablaTV.columnAtPoint(e.getPoint()) == modelTV.getColumnCount()-1) {
-					System.out.println(fila);
-					String o = JOptionPane.showInputDialog(null, "Cantidad requirida: ", "CANTIDAD", JOptionPane.INFORMATION_MESSAGE);
-					int columna = Integer.parseInt(o);
-//					BaseDatos.insertarCarrito(con, VentanaInicial.dni, al.get(fila).getCod(), al.get(fila).getNombre(), al.get(fila).getTipo(), al.get(fila).getMarca(), al.get(fila).getTamanyo(),columna, al.get(fila).getPrecio());
-				}
-				
+//				if(tablaTV.columnAtPoint(e.getPoint()) == modelTV.getColumnCount()-1) {
+//					System.out.println(fila);
+//					String o = JOptionPane.showInputDialog(null, "Cantidad requirida: ", "CANTIDAD", JOptionPane.INFORMATION_MESSAGE);
+//					int columna = Integer.parseInt(o);
+////					BaseDatos.insertarCarrito(con, VentanaInicial.dni, al.get(fila).getCod(), al.get(fila).getNombre(), al.get(fila).getTipo(), al.get(fila).getMarca(), al.get(fila).getTamanyo(),columna, al.get(fila).getPrecio());
+//				}
+//				
 				
 			}
 		});
@@ -231,14 +231,14 @@ public class VentanaTv extends JFrame{
 			}
 		}
 		
-		class JTableButtonModel extends AbstractTableModel {
-			ClienteOperaciones ex;
-			private Object[][] rows;
-			private String[] columns = {"CODIGO", "NOMBRE", "TIPO", "MARCA", "TAMAÑO", "PRECIO", "STOCK", ""};
-			   
-			public String getColumnName(int column) {
-				return columns[column];
-			}
+//		class JTableButtonModel extends AbstractTableModel {
+//			ClienteOperaciones ex;
+//			private Object[][] rows;
+//			private String[] columns = {"CODIGO", "NOMBRE", "TIPO", "MARCA", "TAMAÑO", "PRECIO", "STOCK", ""};
+//			   
+//			public String getColumnName(int column) {
+//				return columns[column];
+//			}
 //			public JTableButtonModel() {
 //				super();
 //				ArrayList<Producto> alObject = new ArrayList<>();
@@ -259,27 +259,27 @@ public class VentanaTv extends JFrame{
 //				}
 //				this.rows =  ob1;
 //			}
-			
-			public int getRowCount() {
-				return rows.length;
-			}
-			
-			public int getColumnCount() {
-				return columns.length;
-			}
-			
-			public Object getValueAt(int row, int column) {
-				return rows[row][column];
-			}
-			
-			public boolean isCellEditable(int row, int column) {
-				return false;
-			}
-			
-			public Class getColumnClass(int column) {
-				return getValueAt(0, column).getClass();
-			}
-		}
+//			
+//			public int getRowCount() {
+//				return rows.length;
+//			}
+//			
+//			public int getColumnCount() {
+//				return columns.length;
+//			}
+//			
+//			public Object getValueAt(int row, int column) {
+//				return rows[row][column];
+//			}
+//			
+//			public boolean isCellEditable(int row, int column) {
+//				return false;
+//			}
+//			
+//			public Class getColumnClass(int column) {
+//				return getValueAt(0, column).getClass();
+//			}
+//		}
 		
 
 
