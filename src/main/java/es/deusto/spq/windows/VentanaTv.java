@@ -53,6 +53,7 @@ public class VentanaTv extends JFrame{
 	private JLabel lblNewLabel;
 	private JPanel panelCentral;
 	
+	private DefaultTableModel modeloTV;
 	private JTable tablaTV;
 //	public static JTableButtonModel modelTV;
 	private JScrollPane scrTV;
@@ -132,12 +133,15 @@ public class VentanaTv extends JFrame{
 			}
 		});
 
-//		modelTV = new JTableButtonModel();
-		
+		//Creamos el modelo de la tabla
+		modeloTV = new DefaultTableModel();
+		//Añadimos la fila de titulos al modelo
+		String[] titulos = {"CODIGO", "NOMBRE", "TIPO", "MARCA", "TAMAÑO", "PRECIO", "STOCK", ""};
+		modeloTV.setColumnIdentifiers(titulos);
 		
 //		tablaTV = new JTable(modelTV);
-		TableCellRenderer tbcr = tablaTV.getDefaultRenderer(JButton.class);
-		tablaTV.setDefaultRenderer(JButton.class, new JTableButtonRenderer(tbcr));
+//		TableCellRenderer tbcr = tablaTV.getDefaultRenderer(JButton.class);
+//		tablaTV.setDefaultRenderer(JButton.class, new JTableButtonRenderer(tbcr));
 		scrTV = new JScrollPane(tablaTV);
 		panelCentral.add(scrTV);
 		
@@ -163,26 +167,26 @@ public class VentanaTv extends JFrame{
 		
 		
 		
-		tablaTV.addMouseListener(new MouseAdapter() {
-			
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				int fila = tablaTV.rowAtPoint(e.getPoint());
-//				String tipo = (String) modelTV.getValueAt(fila, 2);
-//				String ruta = BaseDatos.getRuta(con, tipo);
-//				ImageIcon imagen = new ImageIcon(ruta);
-//				panelFoto.setImagen(imagen.getImage());
-				panelFoto.repaint();
-//				if(tablaTV.columnAtPoint(e.getPoint()) == modelTV.getColumnCount()-1) {
-//					System.out.println(fila);
-//					String o = JOptionPane.showInputDialog(null, "Cantidad requirida: ", "CANTIDAD", JOptionPane.INFORMATION_MESSAGE);
-//					int columna = Integer.parseInt(o);
-////					BaseDatos.insertarCarrito(con, VentanaInicial.dni, al.get(fila).getCod(), al.get(fila).getNombre(), al.get(fila).getTipo(), al.get(fila).getMarca(), al.get(fila).getTamanyo(),columna, al.get(fila).getPrecio());
-//				}
+//		tablaTV.addMouseListener(new MouseAdapter() {
+//			
+//			@Override
+//			public void mouseClicked(MouseEvent e) {
+//				int fila = tablaTV.rowAtPoint(e.getPoint());
+////				String tipo = (String) modelTV.getValueAt(fila, 2);
+////				String ruta = BaseDatos.getRuta(con, tipo);
+////				ImageIcon imagen = new ImageIcon(ruta);
+////				panelFoto.setImagen(imagen.getImage());
+//				panelFoto.repaint();
+////				if(tablaTV.columnAtPoint(e.getPoint()) == modelTV.getColumnCount()-1) {
+////					System.out.println(fila);
+////					String o = JOptionPane.showInputDialog(null, "Cantidad requirida: ", "CANTIDAD", JOptionPane.INFORMATION_MESSAGE);
+////					int columna = Integer.parseInt(o);
+//////					BaseDatos.insertarCarrito(con, VentanaInicial.dni, al.get(fila).getCod(), al.get(fila).getNombre(), al.get(fila).getTipo(), al.get(fila).getMarca(), al.get(fila).getTamanyo(),columna, al.get(fila).getPrecio());
+////				}
+////				
 //				
-				
-			}
-		});
+//			}
+//		});
 
 		/*HILO DE FECHA*/
 		
@@ -217,19 +221,19 @@ public class VentanaTv extends JFrame{
 
 	}
 		
-		class JTableButtonRenderer implements TableCellRenderer {
-			private TableCellRenderer defaultRenderer;
-			public JTableButtonRenderer(TableCellRenderer renderer) {
-				defaultRenderer = renderer;
-			}
-			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-				if(value instanceof Component) {
-					return (Component)value;
-			        
-				}
-				return defaultRenderer.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-			}
-		}
+//		class JTableButtonRenderer implements TableCellRenderer {
+//			private TableCellRenderer defaultRenderer;
+//			public JTableButtonRenderer(TableCellRenderer renderer) {
+//				defaultRenderer = renderer;
+//			}
+//			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+//				if(value instanceof Component) {
+//					return (Component)value;
+//			        
+//				}
+//				return defaultRenderer.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+//			}
+//		}
 		
 //		class JTableButtonModel extends AbstractTableModel {
 //			ClienteOperaciones ex;
