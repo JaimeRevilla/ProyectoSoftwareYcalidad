@@ -6,8 +6,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import es.deusto.spq.client.PerformanceTest;
-import es.deusto.spq.server.JUnitPerfTest;
-import es.deusto.spq.server.JUnitPerfTestRequirement;
+import com.github.noconnor.junitperf.JUnitPerfRule;
+import com.github.noconnor.junitperf.JUnitPerfTest;
+import com.github.noconnor.junitperf.JUnitPerfTestRequirement;
+import com.github.noconnor.junitperf.reporting.providers.HtmlReportGenerator;
 @PerformanceTest
 public class ProductoTestRendimiento {
 	

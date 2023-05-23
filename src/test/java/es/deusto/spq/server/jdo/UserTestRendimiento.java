@@ -6,8 +6,10 @@ import static org.junit.Assert.assertTrue;
 import org.mockito.Mockito;
 
 import es.deusto.spq.client.PerformanceTest;
-import es.deusto.spq.server.JUnitPerfTest;
-import es.deusto.spq.server.JUnitPerfTestRequirement;
+import com.github.noconnor.junitperf.JUnitPerfRule;
+import com.github.noconnor.junitperf.JUnitPerfTest;
+import com.github.noconnor.junitperf.JUnitPerfTestRequirement;
+import com.github.noconnor.junitperf.reporting.providers.HtmlReportGenerator;
 
 import org.mockito.MockedStatic;
 

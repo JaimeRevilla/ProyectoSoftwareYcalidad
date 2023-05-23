@@ -1,7 +1,10 @@
 package es.deusto.spq.server;
 
 import static org.junit.Assert.assertEquals;
-
+import com.github.noconnor.junitperf.JUnitPerfRule;
+import com.github.noconnor.junitperf.JUnitPerfTest;
+import com.github.noconnor.junitperf.JUnitPerfTestRequirement;
+import com.github.noconnor.junitperf.reporting.providers.HtmlReportGenerator;
 import org.junit.Test;
 
 import es.deusto.spq.client.PerformanceTest;

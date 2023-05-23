@@ -6,8 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import es.deusto.spq.client.PerformanceTest;
-import es.deusto.spq.server.JUnitPerfTest;
-import es.deusto.spq.server.JUnitPerfTestRequirement;
+
 
 public class CarritoTest {
 	private Carrito carrito;
