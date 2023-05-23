@@ -32,7 +32,7 @@ import es.deusto.spq.pojo.MessageData;
 import es.deusto.spq.pojo.UserData;
 import es.deusto.spq.server.jdo.User;
 
-
+@PerformanceTest
 public class ResourceTestRendimiento {
 
     private Resource resource;
@@ -61,7 +61,6 @@ public class ResourceTestRendimiento {
     }
 
     @Test
-    @PerformanceTest
     @JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
     public void testSayHello() {
