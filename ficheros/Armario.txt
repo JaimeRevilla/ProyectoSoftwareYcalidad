@@ -1,0 +1,5 @@
+0;Armario;ROBLE;IKEA;250x58x236 cm;200.5;200;imagenes/armarioRoble.png
+1;Armario;ABEDUL;IKEA;250x58x236 cm;100.5;200;imagenes/armarioAbedul.png
+2;Armario;PINO;IKEA;250x58x236 cm;50.5;200;imagenes/armarioPino.png
+3;Armario;EUCALIPTO;IKEA;250x58x236 cm;25.5;200;imagenes/armarioEucalipto.png
+4;Armario;HAYA;IKEA;250x58x236 cm;190.9;200;imagenes/armarioHaya.png

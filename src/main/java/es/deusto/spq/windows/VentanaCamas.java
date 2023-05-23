@@ -14,6 +14,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -54,7 +58,7 @@ public class VentanaCamas extends JFrame{
 	private JPanel panelCentral;
 	
 	private JTable tablaCamas;
-	public static JTableButtonModel modelCamas;
+	public static DefaultTableModel modelCamas;
 	private JScrollPane scrCamas;
 	
 	private ArrayList<Producto> al;
@@ -133,14 +137,35 @@ public class VentanaCamas extends JFrame{
 			}
 		});
 
-//		modelCamas = new JTableButtonModel();
+		modelCamas = new DefaultTableModel();
+		//Añadimos la fila de titulos al modelo
+		String[] titulos = {"CODIGO", "NOMBRE", "TIPO", "MARCA", "TAMAÑO", "PRECIO", "STOCK", "FOTOS"};
+		modelCamas.setColumnIdentifiers(titulos);
 		
+		try(BufferedReader br = new BufferedReader(new FileReader("ficheros/Camas.txt"))) {
+			String linea = br.readLine();
+			while(linea != null) {
+				String[] datos = linea.split(";");
+				modelCamas.addRow(datos);
+				linea = br.readLine();
+			}
+			br.close();
+		}catch(FileNotFoundException e) {
+			e.printStackTrace();
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
 		
 		tablaCamas = new JTable(modelCamas);
-		TableCellRenderer tbcr = tablaCamas.getDefaultRenderer(JButton.class);
-		tablaCamas.setDefaultRenderer(JButton.class, new JTableButtonRenderer(tbcr));
+//		TableCellRenderer tbcr = tablaCamas.getDefaultRenderer(JButton.class);
+//		tablaCamas.setDefaultRenderer(JButton.class, new JTableButtonRenderer(tbcr));
 		scrCamas = new JScrollPane(tablaCamas);
 		panelCentral.add(scrCamas);
+		
+		
+		
+//		TableCellRenderer tbcr = tablaTV.getDefaultRenderer(JButton.class);
+//		tablaTV.setDefaultRenderer(JButton.class, new JTableButtonRenderer(tbcr));
 		
 		JPanel panelAbajo = new JPanel();
 		panelCentral.add(panelAbajo);
@@ -218,66 +243,66 @@ public class VentanaCamas extends JFrame{
 
 	}
 		
-		class JTableButtonRenderer implements TableCellRenderer {
-			private TableCellRenderer defaultRenderer;
-			public JTableButtonRenderer(TableCellRenderer renderer) {
-				defaultRenderer = renderer;
-			}
-			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-				if(value instanceof Component) {
-					return (Component)value;
-			        
-				}
-				return defaultRenderer.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-			}
-		}
-		
-		class JTableButtonModel extends AbstractTableModel {
-			private Object[][] rows;
-			private String[] columns = {"CODIGO", "NOMBRE", "TIPO", "MARCA", "TAMAÑO", "PRECIO", "STOCK", ""};
-			   
-			public String getColumnName(int column) {
-				return columns[column];
-			}
-			public JTableButtonModel() {
-				super();
-				ArrayList<Object[]> alObject = new ArrayList<>();
-				//al = BaseDatos.obtenerProducto(con, "Cama");
-				for(Producto p : al) {
-					JButton btnAnadir = new JButton("AÑADIR");
-						
-					Object [] datos = {p.getCod(), p.getNombre(), p.getTipo(), p.getMarca(), p.getTamanyo(), p.getPrecio(), p.getStock(),btnAnadir};
-					alObject.add(datos);
-				}
-				Object[][] ob1 = new Object[alObject.size()][alObject.get(0).length]; 
-				int ob2 = 0;
-				for(Object[] ob : alObject) {
-					ob1[ob2] = ob; 
-					ob2++;
-				}
-				this.rows =  ob1;
-			}
-			
-			public int getRowCount() {
-				return rows.length;
-			}
-			
-			public int getColumnCount() {
-				return columns.length;
-			}
-			
-			public Object getValueAt(int row, int column) {
-				return rows[row][column];
-			}
-			
-			public boolean isCellEditable(int row, int column) {
-				return false;
-			}
-			
-			public Class getColumnClass(int column) {
-				return getValueAt(0, column).getClass();
-			}
-		}
+//		class JTableButtonRenderer implements TableCellRenderer {
+//			private TableCellRenderer defaultRenderer;
+//			public JTableButtonRenderer(TableCellRenderer renderer) {
+//				defaultRenderer = renderer;
+//			}
+//			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+//				if(value instanceof Component) {
+//					return (Component)value;
+//			        
+//				}
+//				return defaultRenderer.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+//			}
+//		}
+//		
+//		class JTableButtonModel extends AbstractTableModel {
+//			private Object[][] rows;
+//			private String[] columns = {"CODIGO", "NOMBRE", "TIPO", "MARCA", "TAMAÑO", "PRECIO", "STOCK", ""};
+//			   
+//			public String getColumnName(int column) {
+//				return columns[column];
+//			}
+//			public JTableButtonModel() {
+//				super();
+//				ArrayList<Object[]> alObject = new ArrayList<>();
+//				//al = BaseDatos.obtenerProducto(con, "Cama");
+//				for(Producto p : al) {
+//					JButton btnAnadir = new JButton("AÑADIR");
+//						
+//					Object [] datos = {p.getCod(), p.getNombre(), p.getTipo(), p.getMarca(), p.getTamanyo(), p.getPrecio(), p.getStock(),btnAnadir};
+//					alObject.add(datos);
+//				}
+//				Object[][] ob1 = new Object[alObject.size()][alObject.get(0).length]; 
+//				int ob2 = 0;
+//				for(Object[] ob : alObject) {
+//					ob1[ob2] = ob; 
+//					ob2++;
+//				}
+//				this.rows =  ob1;
+//			}
+//			
+//			public int getRowCount() {
+//				return rows.length;
+//			}
+//			
+//			public int getColumnCount() {
+//				return columns.length;
+//			}
+//			
+//			public Object getValueAt(int row, int column) {
+//				return rows[row][column];
+//			}
+//			
+//			public boolean isCellEditable(int row, int column) {
+//				return false;
+//			}
+//			
+//			public Class getColumnClass(int column) {
+//				return getValueAt(0, column).getClass();
+//			}
+}
 		
 
 
@@ -296,4 +321,4 @@ public class VentanaCamas extends JFrame{
 //			}
 //		});
 //	}
-}
+//}

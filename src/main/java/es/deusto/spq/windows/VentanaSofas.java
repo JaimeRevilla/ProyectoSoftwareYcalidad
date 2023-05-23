@@ -13,6 +13,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -52,7 +56,7 @@ public class VentanaSofas extends JFrame{
 	private JPanel panelCentral;
 	
 	private JTable tablaSofas;
-	public static JTableButtonModel modelSofa;
+	public static DefaultTableModel modelSofa;
 	private JScrollPane scrSofa;
 	
 	private ArrayList<Producto> al;
@@ -127,7 +131,25 @@ public class VentanaSofas extends JFrame{
 			}
 		});
 
-//		modelSofa = new JTableButtonModel();
+		modelSofa = new DefaultTableModel();
+		
+		//Añadimos la fila de titulos al modelo
+		String[] titulos = {"CODIGO", "NOMBRE", "TIPO", "MARCA", "TAMAÑO", "PRECIO", "STOCK", "FOTOS"};
+		modelSofa.setColumnIdentifiers(titulos);
+		
+		try(BufferedReader br = new BufferedReader(new FileReader("ficheros/Armario.txt"))) {
+			String linea = br.readLine();
+			while(linea != null) {
+				String[] datos = linea.split(";");
+				modelSofa.addRow(datos);
+				linea = br.readLine();
+			}
+			br.close();
+		}catch(FileNotFoundException e) {
+			e.printStackTrace();
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
 		
 		
 		tablaSofas = new JTable(modelSofa);

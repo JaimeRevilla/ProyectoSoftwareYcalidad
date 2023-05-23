@@ -140,27 +140,29 @@ public class VentanaTv extends JFrame{
 		//Creamos el modelo de la tabla
 		modeloTV = new DefaultTableModel();
 		//Añadimos la fila de titulos al modelo
-		String[] titulos = {"CODIGO", "NOMBRE", "TIPO", "MARCA", "TAMAÑO", "PRECIO", "STOCK", ""};
+		String[] titulos = {"CODIGO", "NOMBRE", "TIPO", "MARCA", "TAMAÑO", "PRECIO", "STOCK", "FOTOS"};
 		modeloTV.setColumnIdentifiers(titulos);
 		
-		tablaTV = new JTable(modeloTV);
 //		TableCellRenderer tbcr = tablaTV.getDefaultRenderer(JButton.class);
 //		tablaTV.setDefaultRenderer(JButton.class, new JTableButtonRenderer(tbcr));
 		
-		try(BufferedReader br = new BufferedReader(new FileReader("src/main/java/productos/txt/productos.csv"))) {
-			String linea;
-			String csvSeparador = ";";
-			if((linea = br.readLine())!=null) {
-				String[] columna = linea.split(csvSeparador);
-				modeloTV.setColumnIdentifiers(columna);
+		//Cargamos el modelo con los datos de un fichero de texto
+		try(BufferedReader br = new BufferedReader(new FileReader("ficheros/TV.txt"))) {
+			String linea = br.readLine();
+			while(linea != null) {
+				String[] datos = linea.split(";");
+				modeloTV.addRow(datos);
+				linea = br.readLine();
 			}
-			while((linea = br.readLine())!= null) {
-				String[]data = linea.split(csvSeparador);
-				modeloTV.addRow(data);
-			}
+			br.close();
+		}catch(FileNotFoundException e) {
+			e.printStackTrace();
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
+		
+		tablaTV = new JTable(modeloTV);
+		
 		scrTV = new JScrollPane(tablaTV);
 		panelCentral.add(scrTV);
 		

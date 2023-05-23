@@ -1,0 +1,4 @@
+5;Cama;LITERA;IKEA;140x190 cm;300.2;200;imagenes/camasLitera.png
+6;Cama;SOFA_CAMA;IKEA;140x190 cm;250.0;200;imagenes/camaSofacama.png
+7;Cama;ACUATICA;IKEA;140x190 cm;600.9;200;imagenes/camaAcuatica.png
+8;Cama;ELECTRICA;IKEA;140x190 cm;900.9;200;imagenes/camaElectrica.png

@@ -1,0 +1,4 @@
+18;Sofa;BUTACAS;IKEA;1 plaza;500.0;200;imagenes/sofaButaca.png
+19;Sofa;DIVAN;IKEA;4 plazas;600.0;200;imagenes/sofaDivan.png
+20;Sofa;PUF_MODULAR;IKEA;1 plaza;200.5;200;imagenes/sofaPuf.png
+21;Sofa;SILLON;IKEA;2 plazas;400.5;200;imagenes/sofaSillon.png

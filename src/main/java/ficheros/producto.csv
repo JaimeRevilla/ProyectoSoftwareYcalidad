@@ -23,6 +23,4 @@ cod;nombre;tipo;marca;tamanyo;precio;stock;ruta
 21;Sofa;SILLON;IKEA;2 plazas;400.5;200;imagenes/sofaSillon.png
 22;Tv;CURVA;SAMSUNG;"79""";2000.9;200;imagenes/tvCurva.png
 23;Tv;PLANA;LG;"50""";1000.9;200;imagenes/tvPlana.png
-0;Armario1;ABEDUL;IKEA;200x200;200.5;2;
-1;Cama1;LITERA;IKEA;200x200;100.5;12;
-2;Espejo1;CIRCULAR;IKEA;50x100;50.5;20;
+

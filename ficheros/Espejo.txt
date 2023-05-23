@@ -1,0 +1,4 @@
+14;Espejo;RECTANGULAR;IKEA;160 x 40 cm;200.3;191;imagenes/espejoRectangular.png
+15;Espejo;CUADRADO;IKEA;160 x 40 cm;222.22;-3;imagenes/espejoCuadrado.png
+16;Espejo;OVALADO;IKEA;160 x 40 cm;290.99;196;imagenes/espejoOvalado.png
+17;Espejo;CIRCULAR;IKEA;160 x 40 cm;320.0;197;imagenes/espejoCircular.png

@@ -1,0 +1,2 @@
+22;Tv;CURVA;SAMSUNG;"79""";2000.9;200;imagenes/tvCurva.png
+23;Tv;PLANA;LG;"50""";1000.9;200;imagenes/tvPlana.png

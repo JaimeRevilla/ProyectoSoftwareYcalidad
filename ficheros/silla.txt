@@ -1,0 +1,5 @@
+9;silla;OFICINA;IKEA;47x51x81 cm;100.5;200;imagenes/sillaOficina.png
+10;silla;REINA;IKEA;47x51x81 cm;150.1;200;imagenes/sillaReina.png
+11;silla;PLEGABLE;IKEA;47x51x81 cm;189.2;200;imagenes/sillaPlegable.png
+12;silla;GAMER;IKEA;47x51x81 cm;300.9;200;imagenes/sillaGamer.png
+13;silla;COCINA;IKEA;47x51x81 cm;20.2;200;imagenes/sillaCocina.png

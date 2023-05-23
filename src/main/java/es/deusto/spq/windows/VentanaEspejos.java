@@ -12,6 +12,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -50,7 +54,7 @@ public class VentanaEspejos extends JFrame{
 	private JPanel panelCentral;
 	
 	private JTable tablaEspejos;
-	public static JTableButtonModel modelespejos;
+	public static DefaultTableModel modelespejos;
 	private JScrollPane scrEspejos;
 	
 	private ArrayList<Producto> al;
@@ -125,14 +129,32 @@ public class VentanaEspejos extends JFrame{
 			}
 		});
 
-//		modelespejos = new JTableButtonModel();
+		modelespejos = new DefaultTableModel();
 		
+		//Añadimos la fila de titulos al modelo
+		String[] titulos = {"CODIGO", "NOMBRE", "TIPO", "MARCA", "TAMAÑO", "PRECIO", "STOCK", "FOTOS"};
+		modelespejos.setColumnIdentifiers(titulos);
+		
+		try(BufferedReader br = new BufferedReader(new FileReader("ficheros/Espejo.txt"))) {
+			String linea = br.readLine();
+			while(linea != null) {
+				String[] datos = linea.split(";");
+				modelespejos.addRow(datos);
+				linea = br.readLine();
+			}
+			br.close();
+		}catch(FileNotFoundException e) {
+			e.printStackTrace();
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
 		
 		tablaEspejos = new JTable(modelespejos);
 		TableCellRenderer tbcr = tablaEspejos.getDefaultRenderer(JButton.class);
 		tablaEspejos.setDefaultRenderer(JButton.class, new JTableButtonRenderer(tbcr));
 		scrEspejos = new JScrollPane(tablaEspejos);
 		panelCentral.add(scrEspejos);
+		
 		
 		JPanel panelAbajo = new JPanel();
 		panelCentral.add(panelAbajo);
