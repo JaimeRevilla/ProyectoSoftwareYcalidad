@@ -15,6 +15,7 @@ public class UserTestRendimiento {
 		 usuario = new Usuario("nombre", "dni", "email", "domicilio", "contrasenia", 0);
 	    }
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testGetDni() {
@@ -22,6 +23,7 @@ public class UserTestRendimiento {
 	}
 	
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testSetDni() {
@@ -29,6 +31,7 @@ public class UserTestRendimiento {
 	    assertEquals("newdni", usuario.getDni());
 	}
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testGetEmail() {
@@ -36,6 +39,7 @@ public class UserTestRendimiento {
 	}
 	
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testSetEmail() {
@@ -43,12 +47,14 @@ public class UserTestRendimiento {
 	    assertEquals("newemail", usuario.getEmail());
 	}
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testGetNombre() {
 	    assertEquals("nombre", usuario.getNombre());
 	}
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testSetNombre() {
@@ -57,12 +63,14 @@ public class UserTestRendimiento {
 	}
 
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testGetDomicilio() {
 	    assertEquals("domicilio", usuario.getDomicilio());
 	}
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testSetDomicilio() {
@@ -70,6 +78,7 @@ public class UserTestRendimiento {
 	    assertEquals("newdomicilio", usuario.getDomicilio());
 	}
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testGetContrasenia() {
@@ -77,6 +86,7 @@ public class UserTestRendimiento {
 	}
 	
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testSetContrasenia() {
@@ -84,6 +94,7 @@ public class UserTestRendimiento {
 	    assertEquals("newcontrasenia", usuario.getContrasenia());
 	}
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testGetPermisos() {
@@ -91,6 +102,7 @@ public class UserTestRendimiento {
 	}
 	
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testSetPermisos() {

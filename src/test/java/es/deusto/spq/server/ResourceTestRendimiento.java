@@ -61,6 +61,7 @@ public class ResourceTestRendimiento {
     }
 
     @Test
+    @PerformanceTest
     @JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
     public void testSayHello() {
@@ -70,6 +71,7 @@ public class ResourceTestRendimiento {
     }
 
     @Test
+    @PerformanceTest
     @JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
     public void testSayMessage() {
@@ -116,6 +118,7 @@ public class ResourceTestRendimiento {
     }
 
     @Test
+    @PerformanceTest
     @JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
     public void testSayMessageUserNotFound() {
@@ -149,6 +152,7 @@ public class ResourceTestRendimiento {
     }
 
     @Test
+    @PerformanceTest
     @JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
     public void testRegisterUserNotFound() {
@@ -231,6 +235,7 @@ public class ResourceTestRendimiento {
     }*/
     
     @Test
+    @PerformanceTest
     @JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
     public void testLoginUserNotFound() {

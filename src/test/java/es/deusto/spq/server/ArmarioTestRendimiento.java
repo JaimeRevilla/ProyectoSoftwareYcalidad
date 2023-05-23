@@ -26,6 +26,7 @@ public class ArmarioTestRendimiento {
 
 
 	@Test
+	@PerformanceTest
     @JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testArmario() {
@@ -36,6 +37,7 @@ public class ArmarioTestRendimiento {
 	
 	//get
 	@Test
+	@PerformanceTest
     @JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void getNumEstanterias() {
@@ -44,6 +46,7 @@ public class ArmarioTestRendimiento {
 	
 	//set
 	@Test
+	@PerformanceTest
     @JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void setNumEstanterias() {
@@ -51,6 +54,7 @@ public class ArmarioTestRendimiento {
 		assertEquals(nuevonumEstanterias, armarios.getNumEstanterias());
 	}
 	@Test
+	@PerformanceTest
     @JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void getTipoArmarioTest() {

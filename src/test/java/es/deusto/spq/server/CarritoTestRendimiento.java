@@ -14,6 +14,7 @@ public class CarritoTestRendimiento {
 		 carrito = new Carrito("dni", 0, "nombre", "tipo", "marca", "tamanyo", 0, 0.0);
 	    }
 	@Test
+	@PerformanceTest
     @JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testGetDni() {
@@ -21,6 +22,7 @@ public class CarritoTestRendimiento {
 	}
 	
 	@Test
+	@PerformanceTest
     @JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testSetDni() {
@@ -28,6 +30,7 @@ public class CarritoTestRendimiento {
 	    assertEquals("newdni", carrito.getDni());
 	}
 	@Test
+	@PerformanceTest
     @JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testGetCod() {
@@ -35,6 +38,7 @@ public class CarritoTestRendimiento {
 	}
 	
 	@Test
+	@PerformanceTest
     @JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testSetCod() {
@@ -42,6 +46,7 @@ public class CarritoTestRendimiento {
 	    assertEquals(1, carrito.getCod());
 	}
 	@Test
+	@PerformanceTest
     @JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testGetNombre() {
@@ -49,6 +54,7 @@ public class CarritoTestRendimiento {
 	}
 	
 	@Test
+	@PerformanceTest
     @JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testSetNombre() {
@@ -56,6 +62,7 @@ public class CarritoTestRendimiento {
 	    assertEquals("newnombre", carrito.getNom());
 	}
 	@Test
+	@PerformanceTest
     @JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testGetTipo() {
@@ -63,6 +70,7 @@ public class CarritoTestRendimiento {
 	}
 	
 	@Test
+	@PerformanceTest
     @JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testSetTipo() {
@@ -70,11 +78,15 @@ public class CarritoTestRendimiento {
 	    assertEquals("newtipo", carrito.getTipo());
 	}
 	@Test
+	@PerformanceTest
+    @JUnitPerfTest(threads = 2, durationMs = 1000)
+	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testGetMarca() {
 	    assertEquals("marca", carrito.getMarca());
 	}
 	
 	@Test
+	@PerformanceTest
     @JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testSetMarca() {
@@ -82,11 +94,15 @@ public class CarritoTestRendimiento {
 	    assertEquals("newmarca", carrito.getMarca());
 	}
 	@Test
+	@PerformanceTest
+    @JUnitPerfTest(threads = 2, durationMs = 1000)
+	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testGetTamanyo() {
 	    assertEquals("tamanyo", carrito.getTamanyo());
 	}
 	
 	@Test
+	@PerformanceTest
     @JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testSetTamanyo() {
@@ -94,6 +110,7 @@ public class CarritoTestRendimiento {
 	    assertEquals("newtamanyo", carrito.getTamanyo());
 	}
 	@Test
+	@PerformanceTest
     @JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testGetPrecio() {
@@ -101,6 +118,7 @@ public class CarritoTestRendimiento {
 	}
 	
 	@Test
+	@PerformanceTest
     @JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testSetPrecio() {
@@ -108,6 +126,7 @@ public class CarritoTestRendimiento {
 	    assertEquals(1.1, carrito.getPrecio(), 0.001);
 	}
 	@Test
+	@PerformanceTest
     @JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testGetCantidad() {
@@ -115,6 +134,7 @@ public class CarritoTestRendimiento {
 	}
 	
 	@Test
+	@PerformanceTest
     @JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testSetCantidad() {

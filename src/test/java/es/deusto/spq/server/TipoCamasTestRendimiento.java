@@ -8,6 +8,7 @@ import es.deusto.spq.client.PerformanceTest;
 @PerformanceTest
 public class TipoCamasTestRendimiento {
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void Test() {

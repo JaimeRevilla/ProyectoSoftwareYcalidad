@@ -17,6 +17,7 @@ public class ProductoTestRendimiento {
 	        producto = new Producto(0, "nombre", "tipo", "marca", "tamanyo", 0.0, 0, "ruta");
 	    }
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testGetRuta() {
@@ -24,6 +25,7 @@ public class ProductoTestRendimiento {
 	}
 	
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testSetRuta() {
@@ -31,6 +33,7 @@ public class ProductoTestRendimiento {
 	    assertEquals("newruta", producto.getRuta());
 	}
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testGetCod() {
@@ -38,6 +41,7 @@ public class ProductoTestRendimiento {
 	}
 	
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testSetCod() {
@@ -45,6 +49,7 @@ public class ProductoTestRendimiento {
 	    assertEquals(1, producto.getCod());
 	}
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testGetNombre() {
@@ -52,6 +57,7 @@ public class ProductoTestRendimiento {
 	}
 	
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testSetNombre() {
@@ -59,6 +65,7 @@ public class ProductoTestRendimiento {
 	    assertEquals("newnombre", producto.getNombre());
 	}
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testGetTipo() {
@@ -66,6 +73,7 @@ public class ProductoTestRendimiento {
 	}
 	
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testSetTipo() {
@@ -73,6 +81,7 @@ public class ProductoTestRendimiento {
 	    assertEquals("newtipo", producto.getTipo());
 	}
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testGetMarca() {
@@ -80,6 +89,7 @@ public class ProductoTestRendimiento {
 	}
 	
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testSetMarca() {
@@ -87,6 +97,7 @@ public class ProductoTestRendimiento {
 	    assertEquals("newmarca", producto.getMarca());
 	}
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testGetTamanyo() {
@@ -94,6 +105,7 @@ public class ProductoTestRendimiento {
 	}
 	
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testSetTamanyo() {
@@ -101,6 +113,7 @@ public class ProductoTestRendimiento {
 	    assertEquals("newtamanyo", producto.getTamanyo());
 	}
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testGetPrecio() {
@@ -108,6 +121,7 @@ public class ProductoTestRendimiento {
 	}
 	
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testSetPrecio() {
@@ -115,6 +129,7 @@ public class ProductoTestRendimiento {
 	    assertEquals(1.1, producto.getPrecio(), 0.001);
 	}
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testGetStock() {
@@ -122,6 +137,7 @@ public class ProductoTestRendimiento {
 	}
 	
 	@Test
+	@PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testSetStock() {

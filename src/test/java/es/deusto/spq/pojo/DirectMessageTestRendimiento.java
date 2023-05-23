@@ -7,6 +7,8 @@ import org.junit.Test;
 import org.mockito.Mock;
 
 import es.deusto.spq.client.PerformanceTest;
+import es.deusto.spq.server.JUnitPerfTest;
+import es.deusto.spq.server.JUnitPerfTestRequirement;
 
 @PerformanceTest
 public class DirectMessageTestRendimiento {
@@ -27,11 +29,17 @@ public class DirectMessageTestRendimiento {
     }
 
     @Test
+	@PerformanceTest
+    @JUnitPerfTest(threads = 2, durationMs = 1000)
+	@JUnitPerfTestRequirement(meanLatency = 100)
     public void getUserData() {
         assertEquals(userData, directMessage.getUserData());
     }
 
     @Test
+	@PerformanceTest
+    @JUnitPerfTest(threads = 2, durationMs = 1000)
+	@JUnitPerfTestRequirement(meanLatency = 100)
     public void getMessageData() {
         assertEquals(messageData, directMessage.getMessageData());
     }

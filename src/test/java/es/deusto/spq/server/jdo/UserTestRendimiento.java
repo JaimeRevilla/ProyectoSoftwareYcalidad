@@ -28,6 +28,7 @@ public class UserTestRendimiento {
     }
 
     @Test
+    @PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
     public void testGetLogin() {
@@ -35,6 +36,7 @@ public class UserTestRendimiento {
     }
 
     @Test
+    @PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
     public void testGetPassword() {
@@ -42,6 +44,7 @@ public class UserTestRendimiento {
     }
 
     @Test
+    @PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
     public void testSetPassword() {
@@ -49,6 +52,7 @@ public class UserTestRendimiento {
         assertEquals("newpasswd", user.getPassword());
     }
     @Test
+    @PerformanceTest
 	@JUnitPerfTest(threads = 2, durationMs = 1000)
 	@JUnitPerfTestRequirement(meanLatency = 100)
     public void testSetEmail() {
