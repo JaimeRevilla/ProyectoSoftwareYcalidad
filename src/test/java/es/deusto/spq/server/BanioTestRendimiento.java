@@ -9,6 +9,8 @@ import es.deusto.spq.client.PerformanceTest;
 public class BanioTestRendimiento {
 
 	@Test
+    @JUnitPerfTest(threads = 2, durationMs = 1000)
+	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void getBanioTest() {
 		Banio banio = new Banio(0, null, null, null, null, 0, 0, null, null);
 		TipoBanio tipobanio = TipoBanio.DUCHA;

@@ -26,6 +26,8 @@ public class ArmarioTestRendimiento {
 
 
 	@Test
+    @JUnitPerfTest(threads = 2, durationMs = 1000)
+	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testArmario() {
 		assertNotNull(armarios);
 		assertEquals(numEstanterias, armarios.getNumEstanterias());
@@ -34,17 +36,23 @@ public class ArmarioTestRendimiento {
 	
 	//get
 	@Test
+    @JUnitPerfTest(threads = 2, durationMs = 1000)
+	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void getNumEstanterias() {
 		assertEquals(numEstanterias, armarios.getNumEstanterias());
 	}
 	
 	//set
 	@Test
+    @JUnitPerfTest(threads = 2, durationMs = 1000)
+	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void setNumEstanterias() {
 		armarios.setNumEstanterias(nuevonumEstanterias);
 		assertEquals(nuevonumEstanterias, armarios.getNumEstanterias());
 	}
 	@Test
+    @JUnitPerfTest(threads = 2, durationMs = 1000)
+	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void getTipoArmarioTest() {
 		Armarios armarios = new Armarios(nuevonumEstanterias, null, null, null, null, nuevonumEstanterias, numEstanterias, null, null, nuevonumEstanterias);
 		TipoArmario tipoarmario = TipoArmario.ROBLE;

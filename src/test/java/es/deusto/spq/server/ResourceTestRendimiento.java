@@ -71,6 +71,8 @@ public class ResourceTestRendimiento {
     }
 
     @Test
+    @JUnitPerfTest(threads = 2, durationMs = 1000)
+	@JUnitPerfTestRequirement(meanLatency = 100)
     public void testSayMessage() {
         // prepare a mock query object to be returned by
         // mock persistence manager
@@ -115,6 +117,8 @@ public class ResourceTestRendimiento {
     }
 
     @Test
+    @JUnitPerfTest(threads = 2, durationMs = 1000)
+	@JUnitPerfTestRequirement(meanLatency = 100)
     public void testSayMessageUserNotFound() {
         // prepare a mock query object to be returned by
         // mock persistence manager
@@ -146,6 +150,8 @@ public class ResourceTestRendimiento {
     }
 
     @Test
+    @JUnitPerfTest(threads = 2, durationMs = 1000)
+	@JUnitPerfTestRequirement(meanLatency = 100)
     public void testRegisterUserNotFound() {
         // prepare mock Persistence Manager to return User
         UserData userData = new UserData();
@@ -226,6 +232,8 @@ public class ResourceTestRendimiento {
     }*/
     
     @Test
+    @JUnitPerfTest(threads = 2, durationMs = 1000)
+	@JUnitPerfTestRequirement(meanLatency = 100)
     public void testLoginUserNotFound() {
     	// prepare mock Persistence Manager to return User
         UserData userData = new UserData();

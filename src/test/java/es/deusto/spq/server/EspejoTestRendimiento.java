@@ -25,23 +25,31 @@ public class EspejoTestRendimiento {
 	}
 	
 	@Test
+    @JUnitPerfTest(threads = 2, durationMs = 1000)
+	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testEspejo() {
 		assertNotNull(espejo);
 	}
 	
 	
 	@Test
+    @JUnitPerfTest(threads = 2, durationMs = 1000)
+	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void getMarco() {
 		assertEquals(marco, espejo.isMarco());
 	}
 					
 		
-	@Test	
+	@Test
+    @JUnitPerfTest(threads = 2, durationMs = 1000)
+	@JUnitPerfTestRequirement(meanLatency = 100)	
 	public void setMarco() {
 		espejo.setMarco(nuevomarco);
 		assertEquals(nuevomarco, espejo.isMarco());
 	}
 	@Test
+    @JUnitPerfTest(threads = 2, durationMs = 1000)
+	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void getTipoEspejoTest() {
 		Espejo espejo = new Espejo(0, null, null, null, null, 0, 0, null, null, marco);
 		TipoEspejo tipoespejo = TipoEspejo.RECTANGULAR;
