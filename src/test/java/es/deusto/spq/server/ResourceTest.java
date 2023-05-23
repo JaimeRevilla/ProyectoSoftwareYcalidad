@@ -192,7 +192,7 @@ public class ResourceTest {
         assertEquals(Response.Status.OK, response.getStatusInfo());
     }*/
     
-    /*@Test
+    @Test
     public void testLoginUser() {
     	// prepare mock Persistence Manager to return User
         UserData userData = new UserData();
@@ -200,25 +200,22 @@ public class ResourceTest {
         userData.setEmail("email");
         userData.setContrasenia("passwd");
 
-        // simulate that 
-        User user = spy(User.class);
-        when(persistenceManager.getObjectById(User.class, userData.getNombre())).thenReturn(user);
-
-        // call tested method
-        Response response = resource.registerUser(userData);
-        
-        if(user == null) {
-        	assertEquals(Response.Status.INTERNAL_SERVER_ERROR, response.getStatusInfo());
-        } else {
-	        // check that the user is set by the code with the password
-	        ArgumentCaptor<String> passwordCaptor = ArgumentCaptor.forClass(String.class);
-	        verify(user).setPassword(passwordCaptor.capture());
-	        assertEquals("passwd", passwordCaptor.getValue());
-	
-	        // check expected response
-	        assertEquals(Response.Status.OK, response.getStatusInfo());
-        }
-    }*/
+//        // simulate that 
+//        when(persistenceManager.getObjectById(any(), anyString())).thenThrow(new JDOObjectNotFoundException());
+//
+//        //prepare mock transaction behaviour
+//        when(transaction.isActive()).thenReturn(true);
+//        
+//        // call tested method
+//        Response response = resource.registerUser(userData);
+//        
+//        ArgumentCaptor<User> userCaptor = ArgumentCaptor.forClass(User.class);
+//		verify(persistenceManager).makePersistent(userCaptor.capture());
+//		assertEquals("test-login", userCaptor.getValue().getLogin());
+//		assertEquals("test-login", userCaptor.getValue().getEmail());
+//		assertEquals("passwd", userCaptor.getValue().getPassword());
+    }
+    
     
     @Test
     public void testLoginUserNotFound() {

@@ -52,52 +52,52 @@ public class ClienteOperaciones {
 		}
 	}
 	
-	public static ArrayList<Producto> obtenerProducto(String nombre) {
-        ArrayList<Producto> prod = new ArrayList<>();
-		WebTarget registerUserWebTarget = webTarget.path("product");
-        Invocation.Builder invocationBuilder = registerUserWebTarget.request(MediaType.APPLICATION_JSON);
-
-        Producto producto = new Producto(nombre);
-        producto.getNombre();
-        prod.add(producto);
-        Response response = invocationBuilder.post(Entity.entity(producto, MediaType.APPLICATION_JSON));
-        if (response.getStatus() != Status.OK.getStatusCode()) {
-            logger.error("Error connecting with the server. Code: {}", response.getStatus());
-        } else {
-        	logger.info("producto obtenido");
-//            GestorAgenda mgt = new GestorAgenda();
-//            mgt.lanza();
-        }
-		return prod;
-    }
+//	public static ArrayList<Producto> obtenerProducto(String nombre) {
+//        ArrayList<Producto> prod = new ArrayList<>();
+//		WebTarget registerUserWebTarget = webTarget.path("product");
+//        Invocation.Builder invocationBuilder = registerUserWebTarget.request(MediaType.APPLICATION_JSON);
+//
+//        Producto producto = new Producto(nombre);
+//        producto.getNombre();
+//        prod.add(producto);
+//        Response response = invocationBuilder.post(Entity.entity(producto, MediaType.APPLICATION_JSON));
+//        if (response.getStatus() != Status.OK.getStatusCode()) {
+//            logger.error("Error connecting with the server. Code: {}", response.getStatus());
+//        } else {
+//        	logger.info("producto obtenido");
+////            GestorAgenda mgt = new GestorAgenda();
+////            mgt.lanza();
+//        }
+//		return prod;
+//    }
 	
-	public void inicializarProducto() {
-		Producto p1 = new Producto(0, "Armario", "ROBLE", "IKEA", "250x58x236", 200.5, 200, "imagenes/armarioRoble.png");
-		Producto p2 = new Producto(1, "Armario", "ABEDUL", "IKEA", "250x58x236", 100.5, 200, "imagenes/armarioAbedul.png");
-		Producto p3 = new Producto(2, "Armario", "PINO", "IKEA", "250x58x236", 50.5, 200, "imagenes/armarioPino.png");
-		Producto p4 = new Producto(3, "Armario", "EUCALIPTO", "IKEA", "250x58x236", 25.5, 200, "imagenes/armarioEucalipto.png");
-		
-		añadirProducto(p1);
-		añadirProducto(p2);
-		añadirProducto(p3);
-		añadirProducto(p4);
-		
-    }
-
-	public boolean añadirProducto(Producto producto) {
-		WebTarget registerUserWebTarget = webTarget.path("añadirProducto");
-        Invocation.Builder invocationBuilder = registerUserWebTarget.request(MediaType.APPLICATION_JSON);
-        Response response = invocationBuilder.post(Entity.entity(producto, MediaType.APPLICATION_JSON));
-        if (response.getStatus() != Status.OK.getStatusCode()) {
-            logger.error("Error connecting with the server. Code: {}", response.getStatus());
-            return false;
-        } else {
-        	logger.info("producto obtenido");
-//            GestorAgenda mgt = new GestorAgenda();
-//            mgt.lanza();
-        	return true;
-        }
-    }
+//	public void inicializarProducto() {
+//		Producto p1 = new Producto(0, "Armario", "ROBLE", "IKEA", "250x58x236", 200.5, 200, "imagenes/armarioRoble.png");
+//		Producto p2 = new Producto(1, "Armario", "ABEDUL", "IKEA", "250x58x236", 100.5, 200, "imagenes/armarioAbedul.png");
+//		Producto p3 = new Producto(2, "Armario", "PINO", "IKEA", "250x58x236", 50.5, 200, "imagenes/armarioPino.png");
+//		Producto p4 = new Producto(3, "Armario", "EUCALIPTO", "IKEA", "250x58x236", 25.5, 200, "imagenes/armarioEucalipto.png");
+//		
+//		añadirProducto(p1);
+//		añadirProducto(p2);
+//		añadirProducto(p3);
+//		añadirProducto(p4);
+//		
+//    }
+//
+//	public boolean añadirProducto(Producto producto) {
+//		WebTarget registerUserWebTarget = webTarget.path("añadirProducto");
+//        Invocation.Builder invocationBuilder = registerUserWebTarget.request(MediaType.APPLICATION_JSON);
+//        Response response = invocationBuilder.post(Entity.entity(producto, MediaType.APPLICATION_JSON));
+//        if (response.getStatus() != Status.OK.getStatusCode()) {
+//            logger.error("Error connecting with the server. Code: {}", response.getStatus());
+//            return false;
+//        } else {
+//        	logger.info("producto obtenido");
+////            GestorAgenda mgt = new GestorAgenda();
+////            mgt.lanza();
+//        	return true;
+//        }
+//    }
 	
 	public boolean logUser(String name, String password) {
         WebTarget registerUserWebTarget = webTarget.path("login");

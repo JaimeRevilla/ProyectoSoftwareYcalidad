@@ -38,7 +38,7 @@ public class VentanaInicial extends JFrame {
 	private static Logger logger = Logger.getLogger("VentanaInicial");
 	public VentanaInicial(ClienteOperaciones exampleClient) {
 		//INICIALIZACION DEL PRODUCTO
-		exampleClient.inicializarProducto();
+//		exampleClient.inicializarProducto();
 		
 		setBounds(250, 225, 1000, 508);
 		setResizable(false);
