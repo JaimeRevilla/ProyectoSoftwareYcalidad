@@ -28,7 +28,9 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import es.deusto.spq.pojo.UserData;
-import es.deusto.spq.windows.VentanaInicial;
+import es.deusto.spq.server.JUnitPerfTest;
+import es.deusto.spq.server.JUnitPerfTestRequirement;
+
 
 @PerformanceTest
 public class ClienteOperacionesTestRendimiento { 
@@ -65,6 +67,9 @@ public class ClienteOperacionesTestRendimiento {
     }
 
     @Test
+    @PerformanceTest
+    @JUnitPerfTest(threads = 2, durationMs = 1000)
+	@JUnitPerfTestRequirement(meanLatency = 100)
     public void testRegisterUser() { 
         when(webTarget.path("register")).thenReturn(webTarget);
 
@@ -79,6 +84,9 @@ public class ClienteOperacionesTestRendimiento {
     }
 
     @Test
+    @PerformanceTest
+    @JUnitPerfTest(threads = 2, durationMs = 1000)
+	@JUnitPerfTestRequirement(meanLatency = 100)
     public void testRegisterUserWithError() {
         when(webTarget.path("register")).thenReturn(webTarget);
 
@@ -93,6 +101,9 @@ public class ClienteOperacionesTestRendimiento {
     }
 
     @Test
+    @PerformanceTest
+    @JUnitPerfTest(threads = 2, durationMs = 1000)
+	@JUnitPerfTestRequirement(meanLatency = 100)
 	public void testLogUser() {
 		 when(webTarget.path("login")).thenReturn(webTarget);
 		 
