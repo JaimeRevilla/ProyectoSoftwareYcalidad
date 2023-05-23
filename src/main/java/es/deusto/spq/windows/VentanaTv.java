@@ -12,6 +12,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -60,7 +64,7 @@ public class VentanaTv extends JFrame{
 	
 	private ArrayList<es.deusto.spq.server.jdo.Producto> al;
 	
-	public VentanaTv(ClienteOperaciones ex) {
+	public VentanaTv(ClienteOperaciones ex) throws FileNotFoundException, IOException {
 		
 		setBounds(250, 225, 1000, 508);
 		
@@ -139,9 +143,24 @@ public class VentanaTv extends JFrame{
 		String[] titulos = {"CODIGO", "NOMBRE", "TIPO", "MARCA", "TAMAÑO", "PRECIO", "STOCK", ""};
 		modeloTV.setColumnIdentifiers(titulos);
 		
-//		tablaTV = new JTable(modelTV);
+		tablaTV = new JTable(modeloTV);
 //		TableCellRenderer tbcr = tablaTV.getDefaultRenderer(JButton.class);
 //		tablaTV.setDefaultRenderer(JButton.class, new JTableButtonRenderer(tbcr));
+		
+		try(BufferedReader br = new BufferedReader(new FileReader("src/main/java/productos/txt/productos.csv"))) {
+			String linea;
+			String csvSeparador = ";";
+			if((linea = br.readLine())!=null) {
+				String[] columna = linea.split(csvSeparador);
+				modeloTV.setColumnIdentifiers(columna);
+			}
+			while((linea = br.readLine())!= null) {
+				String[]data = linea.split(csvSeparador);
+				modeloTV.addRow(data);
+			}
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
 		scrTV = new JScrollPane(tablaTV);
 		panelCentral.add(scrTV);
 		

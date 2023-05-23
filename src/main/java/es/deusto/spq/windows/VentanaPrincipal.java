@@ -24,6 +24,8 @@ import es.deusto.spq.client.ClienteOperaciones;
 import es.deusto.spq.server.Producto;
 
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Connection;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -316,7 +318,15 @@ public class VentanaPrincipal extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VentanaTv v4 = new VentanaTv(ex);
+				try {
+					VentanaTv v4 = new VentanaTv(ex);
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 
