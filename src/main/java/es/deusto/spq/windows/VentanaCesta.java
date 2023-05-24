@@ -133,10 +133,20 @@ public class VentanaCesta extends JFrame {
 		model = new DefaultTableModel();
 		String [] titulos = {"DNI", "CODIGO", "NOMBRE", "TIPO", "MARCA", "TAMANYO","CANTIDAD", "PRECIO"};
 		model.setColumnIdentifiers(titulos);
-//		for(Carrito c: carritos) {
-//			Object [] datos = {c.getDni(), c.getCod(), c.getNom(), c.getTipo(), c.getMarca(), c.getTamanyo(),c.getCantidad(),c.getPrecio()};
-//			model.addRow(datos);
-//		}
+		try(BufferedReader br = new BufferedReader(new FileReader("ficheros/Carrito.txt"))) {
+			String linea = br.readLine();
+			while(linea != null) {
+				String[] datos = linea.split(";");
+				model.addRow(datos);
+				linea = br.readLine();
+			}
+			br.close();
+		}catch(FileNotFoundException e) {
+			e.printStackTrace();
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+		
 		tablaCesta = new JTable(model);		
 		
 		scrollTabla = new JScrollPane(tablaCesta);
