@@ -5,7 +5,7 @@ import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
 
-@PersistenceCapable
+@PersistenceCapable(detachable="true")
 public class User {
 	@PrimaryKey
 	String login=null;
