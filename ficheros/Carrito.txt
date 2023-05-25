@@ -1,0 +1,5 @@
+dni;codigo;nombre;tipo;marca;tamanyo;cantidad;precio
+333C;17;Espejo;CIRCULAR;IKEA;160 x 40 cm;2;150,00
+333C;16;Espejo;OVALADO;IKEA;160 x 40 cm;3;196,00
+333C;21;Sofa;SILLON;IKEA;2 plazas;3;2000,00
+333C;23;Tv;PLANA;LG;"50""";1;2000,50
