@@ -4,3 +4,5 @@ target/
 .settings/
 bin/
 *.log
+.DS_Store/
+.Doxyfile/
